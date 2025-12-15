@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { TopHeader } from "@/components/top-header"
+import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono } from "next/font/google"
 // Allow side-effect CSS imports without a type declaration (suppresses TS error)
 // @ts-ignore
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         <TopHeader />
         {children}
+        <Analytics />
       </body>
     </html>
   )
