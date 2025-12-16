@@ -72,16 +72,17 @@ pnpm dev
 
 ## Contributing
 
-Contributions welcome! Please open issues and PRs that follow the repo conventions.
+Contributions welcome! Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) and follow the issue and PR templates when submitting work.
 
 - Run `pnpm lint` to check code style
-- New components should include comprehensive examples under `app/docs/components/*` and should
-  declare any required `dependencies` in `registry.json`
+- New components should include comprehensive examples under `app/docs/components/*` and should declare any required `dependencies` in `registry.json`
 
 Where to find guidance:
 
 - Docs pages in the repo (`https://ui.eindev.ir/docs`) include live previews and code snippets.
 - Use `shadcn` registry format to make your component discoverable via the CLI.
+
+Please also see `CODE_OF_CONDUCT.md` and `SECURITY.md` for reporting guidelines.
 
 ---
 
