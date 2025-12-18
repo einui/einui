@@ -283,7 +283,7 @@
     },
 
     {
-      "name": "calender-widget",
+      "name": "calendar-widget",
       "type": "registry:component",
       "title": "Calendar Widgets",
       "description": "Calendar widgets for displaying dates, events, and scheduling information.",

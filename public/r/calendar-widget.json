@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "calender-widget",
+  "name": "calendar-widget",
   "title": "Calendar Widgets",
   "description": "Calendar widgets for displaying dates, events, and scheduling information.",
   "dependencies": [
