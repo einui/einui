@@ -3,6 +3,7 @@
 import type React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import {
   BookOpen,
@@ -176,6 +177,17 @@ const navigation: NavSection[] = [
 
 export function UnifiedSidebar() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const activeLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (activeLinkRef.current) {
+      activeLinkRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [pathname]);
 
   return (
     <aside className="fixed left-0 top-0 z-40 hidden h-screen w-72 border-r border-white/10 bg-black/60 backdrop-blur-2xl lg:block">
@@ -188,10 +200,11 @@ export function UnifiedSidebar() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto px-4 py-6">
+        <nav ref={navRef} className="flex-1 overflow-y-auto px-4 py-6">
           {/* Home link */}
           <Link
             href="/"
+            ref={pathname === "/" ? activeLinkRef : null}
             className={cn(
               "mb-4 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
               pathname === "/"
@@ -209,30 +222,34 @@ export function UnifiedSidebar() {
                 {section.title}
               </h4>
               <ul className="space-y-1">
-                {section.items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
-                        pathname === item.href
-                          ? "bg-linear-to-r from-cyan-500/20 to-purple-500/20 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                          : "text-white/60 hover:bg-white/5 hover:text-white"
-                      )}
-                    >
-                      {item.icon}
-                      {item.title}
-                      {item.isNew && pathname != item.href && (
-                        <span className="ml-auto rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-medium text-cyan-400">
-                          New
-                        </span>
-                      )}
-                      {pathname === item.href && (
-                        <ChevronRight className="ml-auto size-4 text-white/40" />
-                      )}
-                    </Link>
-                  </li>
-                ))}
+                {section.items.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        ref={isActive ? activeLinkRef : null}
+                        className={cn(
+                          "flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
+                          isActive
+                            ? "bg-linear-to-r from-cyan-500/20 to-purple-500/20 text-white shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+                            : "text-white/60 hover:bg-white/5 hover:text-white"
+                        )}
+                      >
+                        {item.icon}
+                        {item.title}
+                        {item.isNew && !isActive && (
+                          <span className="ml-auto rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-medium text-cyan-400">
+                            New
+                          </span>
+                        )}
+                        {isActive && (
+                          <ChevronRight className="ml-auto size-4 text-white/40" />
+                        )}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -241,7 +258,7 @@ export function UnifiedSidebar() {
         {/* Footer */}
         <div className="border-t border-white/10 p-4 space-y-3">
           <a
-            href="https://github.com"
+            href="https://github.com/ehsanghaffar/einui"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-white/60 hover:bg-white/5 hover:text-white transition-colors"
@@ -252,7 +269,7 @@ export function UnifiedSidebar() {
           </a>
           <div className="rounded-xl bg-linear-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-3">
             <p className="text-xs text-white/50">
-              Built by <span className="text-white/80 font-medium">Ehsan</span>
+              Built by <a href="https://eindev.ir" target="_blank" className="text-white/80 font-medium">Ehsan</a>
             </p>
           </div>
         </div>
