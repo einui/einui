@@ -49,7 +49,7 @@ const customGroupsCode = `const customGroups = [
     label: "Pages",
     items: [
       { id: "home", label: "Home", icon: <Home />, href: "/" },
-      { id: "about", label: "About", icon: <Info />, href: "/about" },
+      { id: "about", label: "About", icon: <Info />, href: "/" },
     ],
   },
   {
@@ -62,20 +62,20 @@ const customGroupsCode = `const customGroups = [
 
 <GlassCommandPalette groups={customGroups} />`;
 
+type Position = "center" | "top" | "bottom" | "left" | "right";
+
 export default function CommandPalettePage() {
   const [open, setOpen] = useState(false);
-  const [topOpen, setTopOpen] = useState(false);
-  const [leftOpen, setLeftOpen] = useState(false);
-  const [rightOpen, setRightOpen] = useState(false);
-  const [bottomOpen, setBottomOpen] = useState(false);
+  const [position, setPosition] = useState<Position>("center");
+
+  const handlePositionChange = (newPosition: Position) => {
+    setPosition(newPosition);
+    setOpen(true);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
-      <GlassCommandPalette open={open} onOpenChange={setOpen} />
-      <GlassCommandPalette open={topOpen} onOpenChange={setTopOpen} position="top" />
-      <GlassCommandPalette open={bottomOpen} onOpenChange={setBottomOpen} position="bottom" />
-      <GlassCommandPalette open={leftOpen} onOpenChange={setLeftOpen} position="left" />
-      <GlassCommandPalette open={rightOpen} onOpenChange={setRightOpen} position="right" />
+      <GlassCommandPalette open={open} onOpenChange={setOpen} position={position} />
       <PageHeader
         title="Command Palette"
         description="A spotlight-style command palette with keyboard navigation, search filtering, customizable positioning, and glass morphism styling. Press Cmd+K to open."
@@ -88,7 +88,7 @@ export default function CommandPalettePage() {
         description="A searchable command palette with keyboard navigation. Press Cmd/Ctrl+K to toggle."
         preview={
           <div className="flex flex-col items-center gap-4">
-            <GlassCommandTrigger onClick={() => setOpen(true)} />
+            <GlassCommandTrigger onClick={() => handlePositionChange("center")} />
             <p className="text-white/40 text-sm">
               Or press <kbd className="px-2 py-1 rounded bg-white/10 text-white/60">Cmd+K</kbd>
             </p>
@@ -102,16 +102,16 @@ export default function CommandPalettePage() {
         description="The command palette can be positioned at different locations: center (default), top, bottom, left, or right."
         preview={
           <div className="flex flex-wrap gap-3 justify-center">
-            <GlassButton variant="outline" onClick={() => setTopOpen(true)}>
+            <GlassButton variant="outline" onClick={() => handlePositionChange("top")}>
               Top Position
             </GlassButton>
-            <GlassButton variant="outline" onClick={() => setBottomOpen(true)}>
+            <GlassButton variant="outline" onClick={() => handlePositionChange("bottom")}>
               Bottom Position
             </GlassButton>
-            <GlassButton variant="outline" onClick={() => setLeftOpen(true)}>
+            <GlassButton variant="outline" onClick={() => handlePositionChange("left")}>
               Left Sidebar
             </GlassButton>
-            <GlassButton variant="outline" onClick={() => setRightOpen(true)}>
+            <GlassButton variant="outline" onClick={() => handlePositionChange("right")}>
               Right Sidebar
             </GlassButton>
           </div>
@@ -125,7 +125,7 @@ export default function CommandPalettePage() {
         preview={
           <div className="flex gap-4">
             <GlassCommandTrigger />
-            <GlassButton variant="primary" onClick={() => setOpen(true)}>
+            <GlassButton variant="primary" onClick={() => handlePositionChange("center")}>
               <Command className="w-4 h-4" />
               Open Commands
             </GlassButton>
