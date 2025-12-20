@@ -221,7 +221,7 @@ export default function HomePage() {
               variant="purple"
               size="lg"
             >
-              Introducing Calendar Widget
+              Introducing New Widgets
             </GlassAnnouncement>
           </div>
           <div className="flex items-center justify-center gap-3 mb-6">

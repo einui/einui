@@ -43,7 +43,7 @@ import {
   ListTodo,
   TrendingUp,
   Trophy,
-} from "lucide-react"
+} from "lucide-react";
 
 interface NavItem {
   title: string;
@@ -94,8 +94,16 @@ const navigation: NavSection[] = [
         href: "/docs/components/glass-progress",
         icon: <CheckCircle className="size-4" />,
       },
-      { title: "Slider", href: "/docs/components/glass-slider", icon: <Sliders className="size-4" /> },
-      { title: "Switch", href: "/docs/components/glass-switch", icon: <ToggleLeft className="size-4" /> },
+      {
+        title: "Slider",
+        href: "/docs/components/glass-slider",
+        icon: <Sliders className="size-4" />,
+      },
+      {
+        title: "Switch",
+        href: "/docs/components/glass-switch",
+        icon: <ToggleLeft className="size-4" />,
+      },
       { title: "Tabs", href: "/docs/components/glass-tabs", icon: <Layers className="size-4" /> },
       {
         title: "Tooltip",
@@ -157,8 +165,19 @@ const navigation: NavSection[] = [
   {
     title: "Widgets",
     items: [
-  { title: "Calendar", href: "/docs/components/calendar-widget", icon: <Calendar className="h-4 w-4" />, isNew: true },
-    ]
+      {
+        title: "Calendar",
+        href: "/docs/components/calendar-widget",
+        icon: <Calendar className="size-4" />,
+        isNew: true,
+      },
+      {
+        title: "Clock",
+        href: "/docs/components/clock-widget",
+        icon: <Clock className="size-4" />,
+        isNew: true,
+      },
+    ],
   },
   {
     title: "Registry",
@@ -243,9 +262,7 @@ export function UnifiedSidebar() {
                             New
                           </span>
                         )}
-                        {isActive && (
-                          <ChevronRight className="ml-auto size-4 text-white/40" />
-                        )}
+                        {isActive && <ChevronRight className="ml-auto size-4 text-white/40" />}
                       </Link>
                     </li>
                   );
@@ -269,7 +286,10 @@ export function UnifiedSidebar() {
           </a>
           <div className="rounded-xl bg-linear-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-3">
             <p className="text-xs text-white/50">
-              Built by <a href="https://eindev.ir" target="_blank" className="text-white/80 font-medium">Ehsan</a>
+              Built by{" "}
+              <a href="https://eindev.ir" target="_blank" className="text-white/80 font-medium">
+                Ehsan
+              </a>
             </p>
           </div>
         </div>

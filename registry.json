@@ -301,6 +301,24 @@
       ]
     },
     {
+      "name": "clock-widget",
+      "type": "registry:component",
+      "title": "Clock Widgets",
+      "description": "Clock widgets including analog, digital, world clock, stopwatch, and timer with liquid glass styling.",
+      "registryDependencies": [
+        "https://ui.eindev.ir/r/base-widget.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/clock-widget.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "admin-panel",
       "type": "registry:block",
       "title": "Admin Panel",
