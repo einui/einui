@@ -61,7 +61,7 @@ export default function StocksWidgetsPage() {
         description="Financial widgets for tracking stocks, portfolios, market indices, and cryptocurrency."
       />
 
-      <CLIInstall componentName="widgets/stocks-widget" />
+      <CLIInstall componentName="stock-widget" />
 
       <ComponentPreview
         title="Stock Ticker Widget"

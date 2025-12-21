@@ -64,7 +64,7 @@ export function TopHeader() {
           <div className="flex items-center gap-2">
             {/* GitHub Star Badge - Desktop */}
             <a
-              href="https://github.com/ehsan/ein-ui"
+              href="https://github.com/ehsanghaffar/einui"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 rounded-xl bg-linear-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 px-3.5 py-2 text-sm font-medium text-white/90 hover:from-yellow-500/20 hover:to-orange-500/20 hover:border-yellow-500/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.15)] transition-all duration-300 group"
@@ -130,7 +130,7 @@ export function TopHeader() {
 
             {/* Mobile GitHub Link */}
             <a
-              href="https://github.com/ehsan/ein-ui"
+              href="https://github.com/ehsanghaffar/einui"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300 mt-2 border-t border-white/5 pt-5"
