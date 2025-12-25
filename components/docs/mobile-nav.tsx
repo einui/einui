@@ -5,11 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X, Home, Blocks } from "lucide-react";
-import { navigation } from "@/contants/nav-items";
+import { generateNavigation } from "@/contants/nav-items";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const navigation = generateNavigation();
 
   return (
     <div className="lg:hidden">

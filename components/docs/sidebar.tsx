@@ -19,7 +19,7 @@ import {
   SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { Home, Github, ExternalLink, Blocks } from "lucide-react";
-import { navigation } from "@/contants/nav-items";
+import { generateNavigation } from "@/contants/nav-items";
 
 function SidebarNavContent() {
   const pathname = usePathname();
@@ -34,6 +34,8 @@ function SidebarNavContent() {
       });
     }
   }, [pathname]);
+
+  const navigation = generateNavigation()
 
   return (
     <>

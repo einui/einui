@@ -140,7 +140,8 @@
       "title": "Glass Tabs",
       "description": "Tabbed interface components with smooth transitions and glass morphism styling.",
       "dependencies": [
-        "@radix-ui/react-tabs"
+        "@radix-ui/react-tabs",
+        "framer-motion"
       ],
       "files": [
         {
@@ -395,6 +396,193 @@
           "path": "registry/blocks/admin/page.tsx",
           "type": "registry:page",
           "target": "app/admin/page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-select",
+      "type": "registry:component",
+      "title": "Glass Select",
+      "description": "A liquid glass styled select dropdown with frosted glass styling.",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-select.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-textarea",
+      "type": "registry:component",
+      "title": "Glass Textarea",
+      "description": "A liquid glass styled textarea with focus glow effects.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-textarea.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-checkbox",
+      "type": "registry:component",
+      "title": "Glass Checkbox",
+      "description": "A liquid glass styled checkbox with animated check indicator.",
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "framer-motion",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-radio",
+      "type": "registry:component",
+      "title": "Glass Radio Group",
+      "description": "A liquid glass styled radio group with animated selection.",
+      "dependencies": [
+        "@radix-ui/react-radio-group",
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-radio.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-skeleton",
+      "type": "registry:component",
+      "title": "Glass Skeleton",
+      "description": "A liquid glass styled skeleton loading component with shimmer.",
+      "dependencies": [
+        "framer-motion"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-skeleton.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-table",
+      "type": "registry:component",
+      "title": "Glass Table",
+      "description": "A liquid glass styled table for displaying tabular data.",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-breadcrumb",
+      "type": "registry:component",
+      "title": "Glass Breadcrumb",
+      "description": "A liquid glass styled breadcrumb navigation component.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-sheet",
+      "type": "registry:component",
+      "title": "Glass Sheet",
+      "description": "A liquid glass styled sheet/drawer with slide animations.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-sheet.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-popover",
+      "type": "registry:component",
+      "title": "Glass Popover",
+      "description": "A liquid glass styled popover for floating content.",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-popover.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-alert-dialog",
+      "type": "registry:component",
+      "title": "Glass Alert Dialog",
+      "description": "A liquid glass styled alert dialog for confirmations.",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "registryDependencies": [
+        "glass-button"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-alert-dialog.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-separator",
+      "type": "registry:component",
+      "title": "Glass Separator",
+      "description": "A liquid glass styled separator/divider component.",
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-separator.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "glass-scroll-area",
+      "type": "registry:component",
+      "title": "Glass Scroll Area",
+      "description": "A liquid glass styled custom scrollbar component.",
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/liquid-glass/glass-scroll-area.tsx",
+          "type": "registry:component"
         }
       ]
     }

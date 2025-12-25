@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glass-radio",
+  "title": "Glass Radio Group",
+  "description": "A liquid glass styled radio group with animated selection.",
+  "dependencies": [
+    "@radix-ui/react-radio-group",
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/liquid-glass/glass-radio.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as RadioGroupPrimitive from \"@radix-ui/react-radio-group\"\nimport { motion, Variants } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\n\nconst indicatorVariants = {\n  initial: { scale: 0, opacity: 0 },\n  checked: {\n    scale: 1,\n    opacity: 1,\n    transition: {\n      type: \"spring\",\n      visualDuration: 0.2,\n      bounce: 0.5,\n    },\n  },\n}\n\nconst GlassRadioGroup = React.forwardRef<\n  React.ElementRef<typeof RadioGroupPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>\n>(({ className, ...props }, ref) => {\n  return <RadioGroupPrimitive.Root className={cn(\"grid gap-3\", className)} {...props} ref={ref} />\n})\nGlassRadioGroup.displayName = RadioGroupPrimitive.Root.displayName\n\nexport interface GlassRadioGroupItemProps extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {\n  label?: string\n}\n\nconst GlassRadioGroupItem = React.forwardRef<\n  React.ElementRef<typeof RadioGroupPrimitive.Item>,\n  GlassRadioGroupItemProps\n>(({ className, label, id, ...props }, ref) => {\n  const radioId = id || `glass-radio-${props.value}`\n\n  return (\n    <div className=\"flex items-center gap-3\">\n      <RadioGroupPrimitive.Item\n        ref={ref}\n        id={radioId}\n        className={cn(\n          \"aspect-square h-5 w-5 rounded-full\",\n          \"bg-white/10 backdrop-blur-xl border border-white/30\",\n          \"shadow-[0_2px_8px_rgba(0,0,0,0.2)]\",\n          \"transition-all duration-200\",\n          \"focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent\",\n          \"disabled:cursor-not-allowed disabled:opacity-50\",\n          \"data-[state=checked]:border-cyan-400/60\",\n          className,\n        )}\n        {...props}\n      >\n        <RadioGroupPrimitive.Indicator className=\"flex items-center justify-center\" asChild>\n          <motion.div\n            className=\"h-2.5 w-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400\"\n            initial=\"initial\"\n            animate=\"checked\"\n            variants={indicatorVariants as Variants}\n            transition={{\n              type: \"spring\",\n              visualDuration: 0.2,\n              bounce: 0.5,\n            }}\n          />\n        </RadioGroupPrimitive.Indicator>\n      </RadioGroupPrimitive.Item>\n      {label && (\n        <label htmlFor={radioId} className=\"text-sm font-medium text-white/80 cursor-pointer select-none\">\n          {label}\n        </label>\n      )}\n    </div>\n  )\n})\nGlassRadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName\n\nexport { GlassRadioGroup, GlassRadioGroupItem }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

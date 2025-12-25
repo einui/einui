@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glass-popover",
+  "title": "Glass Popover",
+  "description": "A liquid glass styled popover for floating content.",
+  "dependencies": [
+    "@radix-ui/react-popover"
+  ],
+  "files": [
+    {
+      "path": "registry/liquid-glass/glass-popover.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as PopoverPrimitive from \"@radix-ui/react-popover\"\nimport { cn } from \"@/lib/utils\"\n\nconst GlassPopover = PopoverPrimitive.Root\n\nconst GlassPopoverTrigger = PopoverPrimitive.Trigger\n\nconst GlassPopoverAnchor = PopoverPrimitive.Anchor\n\nconst GlassPopoverContent = React.forwardRef<\n  React.ElementRef<typeof PopoverPrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>\n>(({ className, align = \"center\", sideOffset = 4, ...props }, ref) => (\n  <PopoverPrimitive.Portal>\n    <PopoverPrimitive.Content\n      ref={ref}\n      align={align}\n      sideOffset={sideOffset}\n      className={cn(\n        \"z-50 w-72 rounded-xl p-4\",\n        \"bg-white/10 backdrop-blur-2xl border border-white/20\",\n        \"shadow-[0_8px_32px_rgba(0,0,0,0.4)]\",\n        \"outline-none\",\n        \"data-[state=open]:animate-in data-[state=closed]:animate-out\",\n        \"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0\",\n        \"data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95\",\n        \"data-[side=bottom]:slide-in-from-top-2\",\n        \"data-[side=left]:slide-in-from-right-2\",\n        \"data-[side=right]:slide-in-from-left-2\",\n        \"data-[side=top]:slide-in-from-bottom-2\",\n        // Glass highlight\n        \"before:absolute before:inset-0 before:rounded-xl\",\n        \"before:bg-gradient-to-b before:from-white/15 before:to-transparent before:pointer-events-none\",\n        className,\n      )}\n      {...props}\n    />\n  </PopoverPrimitive.Portal>\n))\nGlassPopoverContent.displayName = PopoverPrimitive.Content.displayName\n\nexport { GlassPopover, GlassPopoverTrigger, GlassPopoverContent, GlassPopoverAnchor }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

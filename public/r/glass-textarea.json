@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glass-textarea",
+  "title": "Glass Textarea",
+  "description": "A liquid glass styled textarea with focus glow effects.",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/liquid-glass/glass-textarea.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { motion } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\n\nexport interface GlassTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {\n  glowOnFocus?: boolean\n  label?: string\n  error?: string\n}\n\nconst GlassTextarea = React.forwardRef<HTMLTextAreaElement, GlassTextareaProps>(\n  ({ className, glowOnFocus = true, label, error, id, ...props }, ref) => {\n    const textareaId = id || \"glass-textarea-id\"\n    const errorId = `${textareaId}-error`\n\n    return (\n      <div className=\"relative w-full\">\n        {label && (\n          <motion.label\n            htmlFor={textareaId}\n            className=\"block text-sm font-medium text-white/80 mb-2\"\n            initial={{ opacity: 0, y: -4 }}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{ duration: 0.2 }}\n          >\n            {label}\n          </motion.label>\n        )}\n        <motion.div\n          className=\"relative group\"\n          initial={{ opacity: 0, y: 8 }}\n          animate={{ opacity: 1, y: 0 }}\n          transition={{ type: \"spring\", visualDuration: 0.3, bounce: 0.2 }}\n        >\n          {glowOnFocus && (\n            <motion.div\n              className=\"absolute -inset-0.5 rounded-xl bg-gradient-to-r from-cyan-500/0 via-blue-500/0 to-purple-500/0 blur-md group-focus-within:from-cyan-500/30 group-focus-within:via-blue-500/30 group-focus-within:to-purple-500/30 transition-all duration-300\"\n              aria-hidden=\"true\"\n            />\n          )}\n          <textarea\n            id={textareaId}\n            className={cn(\n              \"relative flex min-h-[120px] w-full rounded-xl px-4 py-3 text-sm\",\n              \"bg-white/10 backdrop-blur-xl border border-white/20\",\n              \"text-white placeholder:text-white/40\",\n              \"shadow-[0_4px_16px_rgba(0,0,0,0.2)]\",\n              \"transition-all duration-300 resize-none\",\n              \"focus:outline-none focus:border-white/40 focus:bg-white/15\",\n              \"focus:ring-2 focus:ring-cyan-400/30 focus:ring-offset-0\",\n              \"disabled:cursor-not-allowed disabled:opacity-50\",\n              error && \"border-red-400/50 focus:border-red-400/70 focus:ring-red-400/30\",\n              className,\n            )}\n            ref={ref}\n            aria-invalid={error ? \"true\" : undefined}\n            aria-describedby={error ? errorId : undefined}\n            {...props}\n          />\n        </motion.div>\n        {error && (\n          <motion.p\n            id={errorId}\n            className=\"mt-2 text-sm text-red-400\"\n            initial={{ opacity: 0, y: -4 }}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{ duration: 0.2 }}\n            role=\"alert\"\n          >\n            {error}\n          </motion.p>\n        )}\n      </div>\n    )\n  },\n)\nGlassTextarea.displayName = \"GlassTextarea\"\n\nexport { GlassTextarea }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

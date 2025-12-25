@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glass-scroll-area",
+  "title": "Glass Scroll Area",
+  "description": "A liquid glass styled custom scrollbar component.",
+  "dependencies": [
+    "@radix-ui/react-scroll-area"
+  ],
+  "files": [
+    {
+      "path": "registry/liquid-glass/glass-scroll-area.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport * as ScrollAreaPrimitive from \"@radix-ui/react-scroll-area\"\nimport { cn } from \"@/lib/utils\"\n\nconst GlassScrollArea = React.forwardRef<\n  React.ElementRef<typeof ScrollAreaPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>\n>(({ className, children, ...props }, ref) => (\n  <ScrollAreaPrimitive.Root ref={ref} className={cn(\"relative overflow-hidden\", className)} {...props}>\n    <ScrollAreaPrimitive.Viewport className=\"h-full w-full rounded-[inherit]\">{children}</ScrollAreaPrimitive.Viewport>\n    <GlassScrollBar />\n    <ScrollAreaPrimitive.Corner />\n  </ScrollAreaPrimitive.Root>\n))\nGlassScrollArea.displayName = ScrollAreaPrimitive.Root.displayName\n\nconst GlassScrollBar = React.forwardRef<\n  React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>,\n  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>\n>(({ className, orientation = \"vertical\", ...props }, ref) => (\n  <ScrollAreaPrimitive.ScrollAreaScrollbar\n    ref={ref}\n    orientation={orientation}\n    className={cn(\n      \"flex touch-none select-none transition-colors\",\n      orientation === \"vertical\" && \"h-full w-2.5 border-l border-l-transparent p-[1px]\",\n      orientation === \"horizontal\" && \"h-2.5 flex-col border-t border-t-transparent p-[1px]\",\n      className,\n    )}\n    {...props}\n  >\n    <ScrollAreaPrimitive.ScrollAreaThumb\n      className={cn(\"relative flex-1 rounded-full\", \"bg-white/20 hover:bg-white/30 transition-colors\")}\n    />\n  </ScrollAreaPrimitive.ScrollAreaScrollbar>\n))\nGlassScrollBar.displayName = ScrollAreaPrimitive.ScrollAreaScrollbar.displayName\n\nexport { GlassScrollArea, GlassScrollBar }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
