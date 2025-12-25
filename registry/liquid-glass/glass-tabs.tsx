@@ -13,7 +13,7 @@ const GlassTabsList = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div className="relative">
     <motion.div
-      className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-lg"
+      className="absolute -inset-1 rounded-2xl bg-linear-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-lg"
       animate={{
         opacity: [0.4, 0.6, 0.4],
       }}
@@ -67,16 +67,15 @@ GlassTabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 const GlassTabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, children, value, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
     className={cn("mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50", className)}
-    value={value}
     {...props}
   >
     <AnimatePresence mode="wait">
       <motion.div
-        key={value ?? "default"}
+        key={props.value}
         initial={{ opacity: 0, y: 10 }}
         animate={{
           opacity: 1,
