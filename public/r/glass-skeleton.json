@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "glass-skeleton",
+  "title": "Glass Skeleton",
+  "description": "A liquid glass styled skeleton loading component with shimmer.",
+  "dependencies": [
+    "framer-motion"
+  ],
+  "files": [
+    {
+      "path": "registry/liquid-glass/glass-skeleton.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\nimport { motion } from \"framer-motion\"\nimport { cn } from \"@/lib/utils\"\n\ninterface GlassSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {\n  variant?: \"default\" | \"circular\" | \"text\" | \"card\"\n  width?: string | number\n  height?: string | number\n  lines?: number\n}\n\nconst shimmerVariants = {\n  animate: {\n    backgroundPosition: [\"200% 0\", \"-200% 0\"],\n    transition: {\n      duration: 2,\n      repeat: Number.POSITIVE_INFINITY,\n      ease: \"linear\",\n    },\n  },\n}\n\nconst GlassSkeleton = React.forwardRef<HTMLDivElement, GlassSkeletonProps>(\n  ({ className, variant = \"default\", width, height, lines = 1, ...props }, ref) => {\n    const baseClasses = cn(\n      \"relative overflow-hidden\",\n      \"bg-white/5 backdrop-blur-sm\",\n      \"before:absolute before:inset-0\",\n      \"before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent\",\n      \"before:animate-[shimmer_2s_infinite]\",\n    )\n\n    const variantClasses = {\n      default: \"rounded-xl\",\n      circular: \"rounded-full\",\n      text: \"rounded-md h-4\",\n      card: \"rounded-2xl min-h-[120px]\",\n    }\n\n    if (variant === \"text\" && lines > 1) {\n      return (\n        <div className=\"space-y-2\" ref={ref} {...props}>\n          {Array.from({ length: lines }).map((_, index) => (\n            <motion.div\n              key={index}\n              className={cn(baseClasses, variantClasses.text, index === lines - 1 && \"w-3/4\", className)}\n              style={{\n                width: index === lines - 1 ? \"75%\" : width,\n                height,\n                backgroundSize: \"400% 100%\",\n              }}\n              animate={{\n                backgroundPosition: [\"200% 0\", \"-200% 0\"],\n              }}\n              transition={{\n                duration: 2,\n                repeat: Number.POSITIVE_INFINITY,\n                ease: \"linear\",\n                delay: index * 0.1,\n              }}\n              aria-hidden=\"true\"\n            />\n          ))}\n        </div>\n      )\n    }\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn(baseClasses, variantClasses[variant], className)}\n        style={{\n          width,\n          height,\n          backgroundSize: \"400% 100%\",\n        }}\n        animate={{\n          backgroundPosition: [\"200% 0\", \"-200% 0\"],\n        }}\n        transition={{\n          duration: 2,\n          repeat: Number.POSITIVE_INFINITY,\n          ease: \"linear\",\n        }}\n        aria-hidden=\"true\"\n        role=\"status\"\n        aria-label=\"Loading...\"\n        {...props}\n      />\n    )\n  },\n)\nGlassSkeleton.displayName = \"GlassSkeleton\"\n\nexport { GlassSkeleton }\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
