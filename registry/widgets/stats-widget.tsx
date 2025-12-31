@@ -107,13 +107,13 @@ function MetricStat({
         <div
           className={cn(
             "h-full rounded-full transition-all duration-500",
-            glowColor === "cyan" && "bg-gradient-to-r from-cyan-500 to-blue-500",
-            glowColor === "purple" && "bg-gradient-to-r from-purple-500 to-pink-500",
-            glowColor === "blue" && "bg-gradient-to-r from-blue-500 to-indigo-500",
-            glowColor === "pink" && "bg-gradient-to-r from-pink-500 to-rose-500",
-            glowColor === "green" && "bg-gradient-to-r from-emerald-500 to-teal-500",
-            glowColor === "amber" && "bg-gradient-to-r from-amber-500 to-orange-500",
-            glowColor === "red" && "bg-gradient-to-r from-red-500 to-rose-500"
+            glowColor === "cyan" && "bg-linear-to-r from-cyan-500 to-blue-500",
+            glowColor === "purple" && "bg-linear-to-r from-purple-500 to-pink-500",
+            glowColor === "blue" && "bg-linear-to-r from-blue-500 to-indigo-500",
+            glowColor === "pink" && "bg-linear-to-r from-pink-500 to-rose-500",
+            glowColor === "green" && "bg-linear-to-r from-emerald-500 to-teal-500",
+            glowColor === "amber" && "bg-linear-to-r from-amber-500 to-orange-500",
+            glowColor === "red" && "bg-linear-to-r from-red-500 to-rose-500"
           )}
           style={{ width: `${percentage}%` }}
         />
