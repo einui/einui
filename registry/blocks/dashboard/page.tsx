@@ -186,7 +186,7 @@ export default function DashboardBlockPage() {
             <div className="flex items-center justify-between">
               <div>
                 <GlassCardTitle>Active Projects</GlassCardTitle>
-                <GlassCardDescription>Track your team's progress</GlassCardDescription>
+                <GlassCardDescription>Track your team&apos;s progress</GlassCardDescription>
               </div>
               <GlassButton variant="ghost" size="sm">View All</GlassButton>
             </div>

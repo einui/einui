@@ -83,7 +83,7 @@ export default function SignupPageDocPage() {
           <li>• At least one uppercase letter (A-Z)</li>
           <li>• At least one lowercase letter (a-z)</li>
           <li>• At least one number (0-9)</li>
-          <li>• At least one special character (!@#$%^&*(),.?":{}|&lt;&gt;)</li>
+          <li>• At least one special character (!@#$%^&amp;*(),.?&quot;:{}|&lt;&gt;)</li>
         </ul>
       </div>
 

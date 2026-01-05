@@ -39,7 +39,7 @@ export default function ForgotPasswordPageBlock() {
               </div>
               <GlassCardTitle className="text-2xl">Forgot Password?</GlassCardTitle>
               <GlassCardDescription>
-                No problem! Enter your email and we'll send you a link to reset your password.
+                No problem! Enter your email and we&apos;ll send you a link to reset your password.
               </GlassCardDescription>
             </GlassCardHeader>
 
@@ -60,7 +60,7 @@ export default function ForgotPasswordPageBlock() {
                     className="bg-white/5"
                   />
                   <p className="text-xs text-white/50 mt-1">
-                    We'll send a password reset link to this email address.
+                    We&apos;ll send a password reset link to this email address.
                   </p>
                 </div>
 
@@ -101,7 +101,7 @@ export default function ForgotPasswordPageBlock() {
               </div>
               <GlassCardTitle className="text-2xl">Check Your Email</GlassCardTitle>
               <GlassCardDescription>
-                We've sent a password reset link to{" "}
+                We&apos;ve sent a password reset link to{" "}
                 <span className="font-medium text-white/90">{email}</span>
               </GlassCardDescription>
             </GlassCardHeader>
@@ -116,7 +116,7 @@ export default function ForgotPasswordPageBlock() {
 
               {/* Helpful Tips */}
               <div className="space-y-3">
-                <h3 className="text-sm font-medium text-white/80">Didn't receive the email?</h3>
+                <h3 className="text-sm font-medium text-white/80">Didn&apos;t receive the email?</h3>
                 <ul className="space-y-2 text-xs text-white/60">
                   <li className="flex gap-2">
                     <span className="text-cyan-400">•</span>

@@ -47,7 +47,7 @@ export default function ForgotPasswordPageDocPage() {
           </li>
           <li className="flex items-start gap-3">
             <span className="text-cyan-400 font-bold">•</span>
-            <span>Helpful tips for users who don't receive email</span>
+            <span>Helpful tips for users who don&apos;t receive email</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-cyan-400 font-bold">•</span>

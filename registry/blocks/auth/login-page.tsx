@@ -140,7 +140,7 @@ export default function LoginPageBlock() {
 
             {/* Sign Up Link */}
             <p className="text-center text-sm text-white/60">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
                 Sign up
               </a>
