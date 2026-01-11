@@ -55,7 +55,7 @@
     "shadcn": "^3.6.2",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^4.3.4"
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.11.0",
