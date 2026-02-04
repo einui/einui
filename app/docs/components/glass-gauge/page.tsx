@@ -1,9 +1,19 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
 import { GlassGauge } from "@/registry/innovative/glass-gauge"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Gauge"
+const componentDescription =
+  "A circular gauge/meter component for displaying percentages, scores, or progress with animated liquid fill effects and customizable colors."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-gauge",
+})
 
 
 const basicCode = `import { GlassGauge } from "@/components/glass-gauge"
@@ -22,8 +32,8 @@ export default function GaugePage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Gauge"
-        description="A circular gauge/meter component for displaying percentages, scores, or progress with animated liquid fill effects and customizable colors."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-gauge" />

@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Components",
-  description: "Explore the components available in our library.",
+  description: "Browse Ein UI liquid glass components for React & Next.js.",
 };
 
 export default function ComponentsLayout({ children }: { children: React.ReactNode }) {

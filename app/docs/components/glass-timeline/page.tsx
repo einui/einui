@@ -1,10 +1,20 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
 import { Package, Truck, CheckCircle, Clock } from "lucide-react"
 import { GlassTimeline, TimelineItem } from "@/registry/innovative/glass-timeline"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Timeline"
+const componentDescription =
+  "A vertical or horizontal timeline component for displaying chronological events, progress steps, or order tracking with glass morphism nodes."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-timeline",
+})
 
 const timelineItems: TimelineItem[] = [
   { id: "1", title: "Order Placed", description: "Your order has been confirmed", date: "Jan 1", status: "completed" },
@@ -32,8 +42,8 @@ export default function TimelinePage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Timeline"
-        description="A vertical or horizontal timeline component for displaying chronological events, progress steps, or order tracking with glass morphism nodes."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-timeline" />

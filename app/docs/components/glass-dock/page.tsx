@@ -1,10 +1,20 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
 import { Home, Search, Mail, Calendar, Settings, User, Bell, Folder, ImageIcon, Music } from "lucide-react"
 import { DockItem, GlassDock } from "@/registry/innovative/glass-dock"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Dock"
+const componentDescription =
+  "A macOS-style dock component with magnification effect, enhanced glass morphism styling, multiple orientations, and configurable glass intensity levels."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-dock",
+})
 
 const dockItems: DockItem[] = [
   { id: "home", icon: <Home className="w-6 h-6" />, label: "Home", active: true },
@@ -50,8 +60,8 @@ export default function DockPage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Dock"
-        description="A macOS-style dock component with magnification effect, enhanced glass morphism styling, multiple orientations, and configurable glass intensity levels."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-dock" />

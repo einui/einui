@@ -3,12 +3,11 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { TopHeader } from "@/components/top-header";
+import { SITE_URL, generateSoftwareLibraryJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://ui.eindev.ir";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Ein UI",
   },
   description:
-    "Beautiful, accessible React components with frosted glass morphism. Built with Radix UI primitives, Framer Motion animations, and Tailwind CSS v4. Install via Shadcn registry.",
+    "Open-source liquid glass UI components for React & Next.js. Shadcn-compatible, accessible, and built with Tailwind CSS.",
   generator: "Next.js",
   applicationName: "Ein UI",
   referrer: "origin-when-cross-origin",
@@ -48,7 +47,6 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   alternates: {
-    canonical: "/",
     languages: {
       "en-US": "/",
     },
@@ -58,9 +56,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Ein UI",
-    title: "Ein UI - Liquid Glass Component Library",
+    title: "Ein UI - Liquid Glass UI Library for React & Next.js",
     description:
-      "Beautiful, accessible React components with frosted glass morphism and smooth animations.",
+      "Open-source liquid glass UI components for React & Next.js. Shadcn-compatible and accessible.",
     images: [
       {
         url: "/logo-white.png",
@@ -72,8 +70,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ein UI - Liquid Glass Component Library",
-    description: "Beautiful, accessible React components with frosted glass morphism.",
+    title: "Ein UI - Liquid Glass UI Library for React & Next.js",
+    description: "Open-source liquid glass UI components for React & Next.js.",
     creator: "@ehsanghaffar",
     site: "@einui",
     images: ["/logo.png"],
@@ -146,6 +144,7 @@ export default function RootLayout({
                     "query-input": "required name=search_term_string",
                   },
                 },
+                generateSoftwareLibraryJsonLd(),
               ],
             }),
           }}

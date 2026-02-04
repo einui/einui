@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   LayoutGrid,
   Sparkles,
@@ -30,6 +31,29 @@ import { GlassProgress } from "@/registry/liquid-glass/glass-progress";
 import { WidgetShowcase } from "@/components/home/widget-showcase";
 import { ComponentGrid } from "@/components/home/component-grid";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { SITE_URL } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Ein UI - Liquid Glass UI Library for React & Next.js",
+  },
+  description:
+    "Ein UI is an open-source liquid glass component library for React & Next.js with shadcn-compatible, accessible components.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Ein UI - Liquid Glass UI Library for React & Next.js",
+    description:
+      "Open-source liquid glass React components for Next.js. Shadcn-compatible, accessible, and built for modern apps.",
+    url: SITE_URL,
+  },
+  twitter: {
+    title: "Ein UI - Liquid Glass UI Library for React & Next.js",
+    description:
+      "Open-source liquid glass React components for Next.js. Shadcn-compatible, accessible, and built for modern apps.",
+  },
+};
 
 const features = [
   {
@@ -75,7 +99,7 @@ export default function HomePage() {
       {/* Content */}
       <div className="relative z-10 pt-16">
         {/* Announcement Banner */}
-        <div className="flex justify-center pt-6">
+        <div className="flex justify-center pt-10">
           <GlassAnnouncement
             href="/docs/components/calendar-widget"
             label="New"
@@ -86,18 +110,18 @@ export default function HomePage() {
           </GlassAnnouncement>
         </div>
         {/* Hero Section */}
-        <section className="container mx-auto px-4 pt-8 pb-20 md:pt-16 md:pb-28">
+        <section className="container mx-auto px-4 pt-8 pb-20 lg:pt-16 md:pt-16 md:pb-28">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6">
               <span className="block">Liquid Glass</span>
-              <span className="block bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Components
+              <span className="block bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent lg:text-7xl">
+                 Components for React
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10 text-balance leading-relaxed">
-              Beautiful, responsive Shadcn components with frosted glass morphism. Built for modern
-              web applications with full dark mode support.
+            <p className="text-lg md:text-xl text-white/50 max-w-2xl mx-auto mb-10  leading-relaxed">
+              Open-source liquid glass UI library for React & Next.js with Shadcn-compatible,
+              accessible components, clean TypeScript, and built-in dark mode.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -110,7 +134,7 @@ export default function HomePage() {
               <Link href="/docs/components/glass-avatar">
                 <GlassButton variant="outline" size="lg" className="min-w-45">
                   <BookOpen className="w-4 h-4 mr-2" />
-                  Browse Components
+                  Components Docs
                 </GlassButton>
               </Link>
             </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   GlassCard,
   GlassCardContent,
@@ -10,6 +11,26 @@ import { GlassButton } from "@/registry/liquid-glass/glass-button";
 import { CodeBlockWithCopy } from "@/components/docs/code-block-with-copy";
 import { ArrowRight, Sparkles, Code2, Palette, Blocks, Zap } from "lucide-react";
 
+export const metadata: Metadata = {
+  title: "Liquid Glass UI Docs for React & Next.js",
+  description:
+    "Installation, theming, and component docs for Ein UI, the liquid glass React & Next.js UI library.",
+  alternates: {
+    canonical: "/docs",
+  },
+  openGraph: {
+    title: "Liquid Glass UI Docs for React & Next.js",
+    description:
+      "Installation, theming, and component docs for Ein UI, the liquid glass React & Next.js UI library.",
+    url: "/docs",
+  },
+  twitter: {
+    title: "Liquid Glass UI Docs for React & Next.js",
+    description:
+      "Installation, theming, and component docs for Ein UI, the liquid glass React & Next.js UI library.",
+  },
+};
+
 export default function IntroductionPage() {
   return (
     <div className="container max-w-4xl mx-auto px-4 py-12 lg:py-16">
@@ -20,12 +41,37 @@ export default function IntroductionPage() {
             Documentation
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Introduction</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Ein UI Documentation
+        </h1>
         <p className="text-xl text-white/60 leading-relaxed">
-          Ein UI is a collection of beautifully-designed, liquid glass styled components built on
-          top of Shadcn UI. Fully accessible, customizable, and ready to use in your Next.js
-          projects.
+          Ein UI is an open-source liquid glass component library for React & Next.js. Use these
+          docs to install the registry, customize themes, and ship beautiful glass UI components.
         </p>
+      </div>
+
+      <div className="mb-10">
+        <h2 className="text-2xl font-bold text-white mb-4">Popular Components</h2>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/docs/components/glass-button" className="text-cyan-300 hover:text-cyan-200">
+            Liquid Glass Button (React)
+          </Link>
+          <Link href="/docs/components/glass-card" className="text-cyan-300 hover:text-cyan-200">
+            Liquid Glass Card (React)
+          </Link>
+          <Link href="/docs/components/glass-input" className="text-cyan-300 hover:text-cyan-200">
+            Liquid Glass Input (React)
+          </Link>
+          <Link
+            href="/docs/components/glass-notification"
+            className="text-cyan-300 hover:text-cyan-200"
+          >
+            Liquid Glass Notifications (React)
+          </Link>
+          <Link href="/docs/components/glass-dock" className="text-cyan-300 hover:text-cyan-200">
+            Liquid Glass Dock (React)
+          </Link>
+        </div>
       </div>
 
       {/* Quick Start */}

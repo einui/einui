@@ -4,6 +4,7 @@ import { useState } from "react";
 import { PageHeader } from "@/components/docs/page-header";
 import { ComponentPreview } from "@/components/docs/component-preview";
 import { CLIInstall } from "@/components/docs/cli-install";
+import { getComponentHeading, getComponentIntro } from "@/lib/seo";
 
 import { Command } from "lucide-react";
 import {
@@ -11,6 +12,10 @@ import {
   GlassCommandPalette,
 } from "@/registry/innovative/glass-command-palette";
 import { GlassButton } from "@/registry/liquid-glass/glass-button";
+
+const componentTitle = "Command Palette";
+const componentDescription =
+  "A spotlight-style command palette with keyboard navigation, search filtering, customizable positioning, and glass morphism styling. Press Cmd+K to open.";
 
 const basicCode = `import { GlassCommandPalette, GlassCommandTrigger } from "@/components/glass-command-palette";
 import { useState } from "react";
@@ -77,8 +82,8 @@ export default function CommandPalettePage() {
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <GlassCommandPalette open={open} onOpenChange={setOpen} position={position} />
       <PageHeader
-        title="Command Palette"
-        description="A spotlight-style command palette with keyboard navigation, search filtering, customizable positioning, and glass morphism styling. Press Cmd+K to open."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-command-palette" />

@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { getAllComponentSlugs, getComponentBySlug } from "@/lib/docs/component-registry"
 import { DocPageSkeleton } from "@/components/docs/doc-page-skeleton"
 import { ComponentDocPage } from "@/components/docs/component-doc-page"
+import { buildComponentMetadata } from "@/lib/seo"
 
 // Generate static params for all components at build time
 export function generateStaticParams() {
@@ -25,14 +26,11 @@ export async function generateMetadata({
     }
   }
 
-  return {
-    title: `${component.title} - Ein UI`,
+  return buildComponentMetadata({
+    title: component.title,
     description: component.description,
-    openGraph: {
-      title: `${component.title} - Ein UI`,
-      description: component.description,
-    },
-  }
+    slug,
+  }) as Metadata
 }
 
 export default async function ComponentPage({

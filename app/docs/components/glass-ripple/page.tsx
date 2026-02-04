@@ -1,9 +1,19 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
 import { GlassRipple, GlassRippleButton } from "@/registry/innovative/glass-ripple"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Ripple"
+const componentDescription =
+  "Material Design-inspired ripple effect components for touch feedback, with customizable colors and liquid glass styling."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-ripple",
+})
 
 const basicCode = `import { GlassRippleButton } from "@/components/glass-ripple"
 
@@ -23,8 +33,8 @@ export default function RipplePage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Ripple"
-        description="Material Design-inspired ripple effect components for touch feedback, with customizable colors and liquid glass styling."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-ripple" />

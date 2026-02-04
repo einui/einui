@@ -1,29 +1,6 @@
 import { MetadataRoute } from "next"
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://ui.eindev.ir"
-
-// All component routes for sitemap
-const componentRoutes = [
-  "glass-card",
-  "glass-button",
-  "glass-dialog",
-  "glass-input",
-  "glass-tabs",
-  "glass-badge",
-  "glass-avatar",
-  "glass-progress",
-  "glass-switch",
-  "glass-slider",
-  "glass-tooltip",
-  "glass-command-palette",
-  "glass-notification",
-  "glass-morph-card",
-  "glass-ripple",
-  "glass-timeline",
-  "glass-gauge",
-  "glass-dock",
-  "glass-spotlight",
-]
+import { SITE_URL } from "@/lib/seo"
+import { getAllComponentSlugs } from "@/lib/docs/component-registry"
 
 const docsRoutes = [
   "",
@@ -55,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Component pages
-  const componentPages = componentRoutes.map((component) => ({
+  const componentPages = getAllComponentSlugs().map((component) => ({
     url: `${SITE_URL}/docs/components/${component}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
@@ -74,7 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Registry page
   const registryPage = {
-    url: `${SITE_URL}/registry`,
+    url: `${SITE_URL}/docs/registry`,
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,

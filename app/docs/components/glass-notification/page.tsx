@@ -1,10 +1,20 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
 import { GlassButton } from "@/registry/liquid-glass/glass-button"
 import { GlassNotification } from "@/registry/innovative/glass-notification"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Notifications"
+const componentDescription =
+  "Toast notifications with glass morphism styling, auto-dismiss progress bars, and multiple variants for success, error, warning, and info states."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-notification",
+})
 
 const basicCode = `import { GlassNotification } from "@/components/glass-notification"
 
@@ -40,8 +50,8 @@ export default function NotificationsPage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Notifications"
-        description="Toast notifications with glass morphism styling, auto-dismiss progress bars, and multiple variants for success, error, warning, and info states."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-notification" />

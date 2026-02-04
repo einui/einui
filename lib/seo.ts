@@ -1,4 +1,13 @@
+import type { Metadata } from "next"
+
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://ui.eindev.ir"
+
+const MAX_META_DESCRIPTION = 155
+
+function truncateMeta(text: string, max = MAX_META_DESCRIPTION) {
+  if (text.length <= max) return text
+  return `${text.slice(0, max - 3).trimEnd()}...`
+}
 
 // Breadcrumb JSON-LD generator
 export function generateBreadcrumbJsonLd(items: { name: string; url: string }[]) {
@@ -32,6 +41,22 @@ export function generateSoftwareAppJsonLd() {
       ratingValue: "4.9",
       ratingCount: "127",
     },
+  }
+}
+
+// Software library JSON-LD for open-source component library
+export function generateSoftwareLibraryJsonLd() {
+  return {
+    "@type": "SoftwareLibrary",
+    name: "Ein UI",
+    url: SITE_URL,
+    description: "Open-source liquid glass UI component library for React and Next.js.",
+    isAccessibleForFree: true,
+    license: "https://opensource.org/licenses/MIT",
+    codeRepository: "https://github.com/ehsanghaffar/einui",
+    programmingLanguage: ["TypeScript", "JavaScript"],
+    runtimePlatform: "React",
+    keywords: ["liquid glass", "react components", "next.js", "shadcn"],
   }
 }
 
@@ -135,4 +160,44 @@ export function stripUtmParams(url: string): string {
 export function getCanonicalUrl(path: string): string {
   const cleanPath = path.split("?")[0] // Remove query params
   return `${SITE_URL}${cleanPath}`
+}
+
+export function getComponentHeading(title: string) {
+  return `Liquid Glass ${title} - React`
+}
+
+export function getComponentIntro(title: string, description: string) {
+  return `Liquid glass ${title.toLowerCase()} component for React & Next.js. ${description}`
+}
+
+export function buildComponentMetadata({
+  title,
+  description,
+  slug,
+}: {
+  title: string
+  description: string
+  slug: string
+}): Metadata {
+  const name = `Liquid Glass ${title}`
+  const metaTitle = `${name} - React`
+  const metaDescription = truncateMeta(`${name} component for React & Next.js. ${description}`)
+  const canonical = `/docs/components/${slug}`
+
+  return {
+    title: metaTitle,
+    description: metaDescription,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: metaTitle,
+      description: metaDescription,
+      url: canonical,
+    },
+    twitter: {
+      title: metaTitle,
+      description: metaDescription,
+    },
+  }
 }

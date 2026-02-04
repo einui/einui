@@ -1,11 +1,20 @@
-"use client"
-
+import type { Metadata } from "next"
 import { PageHeader } from "@/components/docs/page-header"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { CLIInstall } from "@/components/docs/cli-install"
-
 import { Sparkles, Zap, Shield } from "lucide-react"
 import { GlassMorphCard } from "@/registry/innovative/glass-morph-card"
+import { buildComponentMetadata, getComponentHeading, getComponentIntro } from "@/lib/seo"
+
+const componentTitle = "Morph Card"
+const componentDescription =
+  "A 3D perspective card that responds to mouse movement with dynamic lighting effects and tilt animations."
+
+export const metadata: Metadata = buildComponentMetadata({
+  title: componentTitle,
+  description: componentDescription,
+  slug: "glass-morph-card",
+})
 
 const basicCode = `import { GlassMorphCard } from "@/components/glass-morph-card"
 
@@ -26,8 +35,8 @@ export default function MorphCardPage() {
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12 max-w-4xl">
       <PageHeader
-        title="Morph Card"
-        description="A 3D perspective card that responds to mouse movement with dynamic lighting effects and tilt animations."
+        title={getComponentHeading(componentTitle)}
+        description={getComponentIntro(componentTitle, componentDescription)}
       />
 
       <CLIInstall componentName="glass-morph-card" />
