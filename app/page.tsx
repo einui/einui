@@ -115,7 +115,7 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6">
               <span className="block">Liquid Glass</span>
               <span className="block bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent lg:text-7xl">
-                 Components for React
+                Components for React
               </span>
             </h1>
 
@@ -222,12 +222,12 @@ export default function HomePage() {
         </section>
 
         {/* Live Preview */}
-        <section className="mb-20">
+        <section className="mb-20 px-4">
           <h2 className="text-2xl font-semibold text-white mb-3 text-center">Live Preview</h2>
           <p className="text-white/60 text-center mb-10 max-w-xl mx-auto">
             See components in action
           </p>
-          <GlassCard className="max-w-2xl mx-auto">
+          <GlassCard className="max-w-2xl mx-auto w-full">
             <GlassCardHeader>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
