@@ -90,7 +90,7 @@ const GlassWidgetBase = React.forwardRef<HTMLDivElement, GlassWidgetBaseProps>(
   ) => {
     return (
       <motion.div
-        className="relative"
+        className="relative h-full"
         initial="hidden"
         animate="visible"
         whileHover={interactive && hoverScale ? "hover" : undefined}
@@ -112,7 +112,7 @@ const GlassWidgetBase = React.forwardRef<HTMLDivElement, GlassWidgetBaseProps>(
         <motion.div
           ref={ref}
           className={cn(
-            "relative rounded-2xl border border-white/20",
+            "relative h-full rounded-2xl border border-white/20",
             "bg-white/10 backdrop-blur-xl",
             "shadow-[0_8px_32px_rgba(0,0,0,0.37)]",
             // Inner highlight linear
@@ -127,7 +127,7 @@ const GlassWidgetBase = React.forwardRef<HTMLDivElement, GlassWidgetBaseProps>(
           role="article"
           {...props}
         >
-          <div className="relative z-10">{children}</div>
+          <div className="relative z-10 h-full">{children}</div>
         </motion.div>
       </motion.div>
     )

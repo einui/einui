@@ -89,12 +89,12 @@ const GlassSheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitiv
 GlassSheetContent.displayName = SheetPrimitive.Content.displayName
 
 const GlassSheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-col gap-2 text-center sm:text-left", className)} {...props} />
+  <div className={cn("flex flex-col gap-2 text-left", className)} {...props} />
 )
 GlassSheetHeader.displayName = "GlassSheetHeader"
 
 const GlassSheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex flex-col-reverse sm:flex-row sm:justify-end gap-2", className)} {...props} />
+  <div className={cn("flex flex-row justify-end gap-2", className)} {...props} />
 )
 GlassSheetFooter.displayName = "GlassSheetFooter"
 

@@ -77,14 +77,14 @@ const positionStyles: Record<CommandPalettePosition, { container: string; animat
     wrapper: "w-full max-w-2xl mx-4",
   },
   left: {
-    container: "items-center justify-start pl-4",
+    container: "items-center justify-start",
     animation: "animate-in fade-in slide-in-from-left-full duration-300",
-    wrapper: "w-full max-w-md h-[80vh] flex flex-col",
+    wrapper: "w-full max-w-md h-[80vh] flex flex-col pl-4 pr-4 sm:pr-0",
   },
   right: {
-    container: "items-center justify-end pr-4",
+    container: "items-center justify-end",
     animation: "animate-in fade-in slide-in-from-right-full duration-300",
-    wrapper: "w-full max-w-md h-[80vh] flex flex-col",
+    wrapper: "w-full max-w-md h-[80vh] flex flex-col pr-4 pl-4 sm:pl-0",
   },
 }
 

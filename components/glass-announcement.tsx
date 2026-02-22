@@ -49,7 +49,7 @@ const glassAnnouncementVariants = cva(
 
 export interface GlassAnnouncementProps
   extends Omit<HTMLMotionProps<"div">, "children">,
-    VariantProps<typeof glassAnnouncementVariants> {
+  VariantProps<typeof glassAnnouncementVariants> {
   /** The label/tag shown at the start (e.g., "New", "Update") */
   label?: string;
   /** Main announcement text */
@@ -122,7 +122,7 @@ function GlassAnnouncement({
 
   const content = (
     <motion.div
-      className={cn(glassAnnouncementVariants({ variant, size }), "group", className)}
+      className={cn(glassAnnouncementVariants({ variant, size }), "group max-w-[90vw]", className)}
       variants={announcementVariants}
       initial="initial"
       animate="animate"
@@ -174,7 +174,7 @@ function GlassAnnouncement({
         </span>
 
         {/* Main text */}
-        <span className="text-white/90 font-medium">{children}</span>
+        <span className="text-white/90 font-medium line-clamp-1">{children}</span>
 
         {/* Arrow */}
         {showArrow && (

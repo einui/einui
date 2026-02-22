@@ -66,7 +66,7 @@ export function ComponentGrid() {
         <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-4">
           Base Components
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
           {baseComponents.map((component) => (
             <Link key={component.href} href={component.href} className="group">
               <div className="p-3 rounded-xl bg-white/2 border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all text-center">
@@ -83,7 +83,7 @@ export function ComponentGrid() {
         <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-4">
           Advanced
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {advancedComponents.map((component) => (
             <Link key={component.href} href={component.href} className="group">
               <div className="p-3 rounded-xl bg-white/2 border border-white/5 hover:bg-white/5 hover:border-white/10 transition-all text-center relative">
@@ -107,7 +107,7 @@ export function ComponentGrid() {
       {/* Widgets */}
       <div>
         <h3 className="text-sm font-medium text-white/40 uppercase tracking-wider mb-4">Widgets</h3>
-        <div className="grid grid-cols-2 sm:grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
           {widgetTypes.map((widget) => (
             <Link key={widget.href} href={widget.href} className="group">
               <div className="p-3 rounded-xl bg-linear-to-br from-cyan-500/5 to-purple-500/5 border border-white/5 hover:border-cyan-500/20 transition-all text-center">

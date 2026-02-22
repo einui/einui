@@ -50,7 +50,7 @@ function AnalogClockWidget({
   const numbers = showNumbers ? [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] : [];
 
   return (
-    <GlassWidgetBase className={cn("p-3", className)} size="sm" glowColor="blue">
+    <GlassWidgetBase className={cn("p-3 w-full h-full flex items-center justify-center", className)} size="sm" glowColor="blue">
       <div className={cn("relative", config.container)}>
         {/* Clock face with glass effect */}
         <div className="absolute inset-0 rounded-full border border-white/20  bg-white/5 backdrop-blur-sm shadow-inner" />
@@ -160,19 +160,21 @@ function DigitalClockWidget({
 
   return (
     <GlassWidgetBase
-      className={cn("flex flex-col items-center justify-center min-w-35", className)}
+      className={cn("w-full min-w-0", className)}
       glowColor="cyan"
     >
-      <div className="flex items-baseline gap-1">
-        <span className="text-4xl font-light text-white tabular-nums">
-          {displayHours.toString().padStart(2, "0")}:{minutes.toString().padStart(2, "0")}
-        </span>
-        {showSeconds && (
-          <span className="text-xl text-white/60 tabular-nums">
-            :{seconds.toString().padStart(2, "0")}
+      <div className="flex flex-col items-center justify-center h-full">
+        <div className="flex items-baseline gap-1">
+          <span className="text-4xl font-light text-white tabular-nums">
+            {displayHours.toString().padStart(2, "0")}:{minutes.toString().padStart(2, "0")}
           </span>
-        )}
-        {format === "12h" && <span className="text-sm text-white/50 ml-1">{period}</span>}
+          {showSeconds && (
+            <span className="text-xl text-white/60 tabular-nums">
+              :{seconds.toString().padStart(2, "0")}
+            </span>
+          )}
+          {format === "12h" && <span className="text-sm text-white/50 ml-1">{period}</span>}
+        </div>
       </div>
     </GlassWidgetBase>
   );
@@ -264,7 +266,7 @@ function StopwatchWidget({ className }: StopwatchWidgetProps) {
   };
 
   return (
-    <GlassWidgetBase className={cn("min-w-40", className)} glowColor="cyan">
+    <GlassWidgetBase className={cn(className)} glowColor="cyan">
       <div className="text-3xl font-light text-white text-center mb-4 tabular-nums">
         {formatTime(time)}
       </div>
@@ -329,12 +331,12 @@ function TimerWidget({ initialMinutes = 5, className }: TimerWidgetProps) {
       className={cn("min-w-40", className)}
       glowColor={timeLeft === 0 ? "red" : "green"}
     >
-      <div className="relative flex items-center justify-center mb-4">
-        <svg className="w-24 h-24 -rotate-90">
+      <div className="relative flex items-center justify-center mb-4 p-2">
+        <svg className="w-24 h-24 -rotate-90" viewBox="0 0 96 96">
           <circle
             cx="48"
             cy="48"
-            r="44"
+            r="42"
             stroke="rgba(255,255,255,0.1)"
             strokeWidth="4"
             fill="none"
@@ -342,13 +344,13 @@ function TimerWidget({ initialMinutes = 5, className }: TimerWidgetProps) {
           <circle
             cx="48"
             cy="48"
-            r="44"
+            r="42"
             stroke={timeLeft === 0 ? "#ef4444" : "#22c55e"}
             strokeWidth="4"
             fill="none"
             strokeLinecap="round"
-            strokeDasharray={276.46}
-            strokeDashoffset={276.46 * (1 - progress / 100)}
+            strokeDasharray={263.89}
+            strokeDashoffset={263.89 * (1 - progress / 100)}
             className="transition-all duration-1000"
           />
         </svg>

@@ -53,7 +53,7 @@ const GlassRadioGroupItem = React.forwardRef<
         )}
         {...props}
       >
-        <RadioGroupPrimitive.Indicator className="flex items-center justify-center" asChild>
+        <RadioGroupPrimitive.Indicator className="flex w-full h-full items-center justify-center">
           <motion.div
             className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-400"
             initial="initial"

@@ -149,12 +149,10 @@ export default function SignupPageBlock() {
                       { key: "hasSpecial", label: "Special character" },
                     ].map((rule) => (
                       <div key={rule.key} className="flex items-center gap-1.5">
-                        <div className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                          validation[rule.key as keyof ValidationRules] ? "bg-green-400" : "bg-white/20"
-                        }`} />
-                        <span className={`text-xs transition-colors ${
-                          validation[rule.key as keyof ValidationRules] ? "text-green-400" : "text-white/40"
-                        }`}>
+                        <div className={`h-1.5 w-1.5 rounded-full transition-colors ${validation[rule.key as keyof ValidationRules] ? "bg-green-400" : "bg-white/20"
+                          }`} />
+                        <span className={`text-xs transition-colors ${validation[rule.key as keyof ValidationRules] ? "text-green-400" : "text-white/40"
+                          }`}>
                           {rule.label}
                         </span>
                       </div>
@@ -196,21 +194,27 @@ export default function SignupPageBlock() {
             </div>
 
             {/* Terms Agreement */}
-            <div className="flex items-start space-x-2 pt-2">
-              <GlassCheckbox id="terms" checked={agreeToTerms} onCheckedChange={(checked) => {
-                if (typeof checked === 'boolean') {
-                  setAgreeToTerms(checked)
-                }
-              }} />
-              <Label htmlFor="terms" className="text-white/70 cursor-pointer text-sm leading-tight">
-                I agree to the{" "}
-                <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                  Terms of Service
-                </a>{" "}
-                and{" "}
-                <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                  Privacy Policy
-                </a>
+            <div className="flex items-start gap-3 pt-2">
+              <div className="pt-1">
+                <GlassCheckbox id="terms" checked={agreeToTerms} onCheckedChange={(checked) => {
+                  if (typeof checked === 'boolean') {
+                    setAgreeToTerms(checked)
+                  }
+                }} />
+              </div>
+              <Label htmlFor="terms" className="text-white/70 cursor-pointer text-sm leading-relaxed font-normal flex-1 flex flex-wrap gap-x-1 gap-y-0.5">
+                <span className="whitespace-nowrap">
+                  I agree to the{" "}
+                  <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                    Terms of Service
+                  </a>
+                </span>
+                <span className="whitespace-nowrap">
+                  and{" "}
+                  <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                    Privacy Policy
+                  </a>
+                </span>
               </Label>
             </div>
 

@@ -38,7 +38,7 @@ const GlassAlertDialogContent = React.forwardRef<
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2",
+        "fixed left-1/2 top-1/2 z-50 w-full max-w-sm -translate-x-1/2 -translate-y-1/2",
         "rounded-2xl border border-white/20 p-6",
         "bg-white/10 backdrop-blur-2xl",
         "shadow-[0_8px_32px_rgba(0,0,0,0.4)]",

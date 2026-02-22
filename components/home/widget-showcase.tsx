@@ -19,15 +19,18 @@ const forecastData = [
 
 export function WidgetShowcase() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
-      {/* Row 1 */}
-      <div className="col-span-1">
-        <CompactCalendarWidget />
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+      {/* Column 1 */}
+      <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-2 gap-4">
+          <CompactCalendarWidget />
+          <AnalogClockWidget size="lg" showNumbers={true} />
+        </div>
+        <CalendarWidget />
       </div>
-      <div className="col-span-1">
-        <AnalogClockWidget size="lg" showNumbers={true} />
-      </div>
-      <div className="col-span-2">
+
+      {/* Column 2 */}
+      <div className="flex flex-col gap-4">
         <HourlyWeatherWidget
           hours={[
             { time: "1 AM", temperature: 22, icon: "sun" },
@@ -41,23 +44,16 @@ export function WidgetShowcase() {
             { time: "9 AM", temperature: 26, icon: "sun" },
           ]}
         />
-      </div>
-      <div className="col-span-2">
         <StockTickerWidget symbol="AAPL" price={198.45} change={2.34} changePercent={1.19} />
       </div>
 
-      {/* Row 2 */}
-      <div className="col-span-2">
-        <CalendarWidget />
-      </div>
-      <div className="col-span-2">
+      {/* Column 3 */}
+      <div className="flex flex-col gap-4 md:col-span-2 lg:col-span-1">
         <ForecastWidget forecast={forecastData} />
-      </div>
-      <div className="col-span-1">
-        <DigitalClockWidget showSeconds={false} />
-      </div>
-      <div className="col-span-1">
-        <StopwatchWidget />
+        <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-col lg:gap-4 xl:grid xl:grid-cols-2">
+          <DigitalClockWidget showSeconds={false} className="w-full h-full" />
+          <StopwatchWidget className="w-full h-full" />
+        </div>
       </div>
     </div>
   );

@@ -192,7 +192,7 @@ export default function InstallationPage() {
               {Object.entries(installCommands).map(([name, command]) => (
                 <div key={name} className="flex items-center justify-between gap-4">
                   <span className="text-sm text-white/80 font-medium min-w-30">{name}</span>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <CodeBlockWithCopy code={command} />
                   </div>
                 </div>

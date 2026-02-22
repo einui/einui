@@ -138,14 +138,14 @@ export interface ComponentConfig {
   description: string;
   registryName: string;
   category:
-    | "components"
-    | "forms"
-    | "data-display"
-    | "overlays"
-    | "innovative"
-    | "time"
-    | "widgets"
-    | "data";
+  | "components"
+  | "forms"
+  | "data-display"
+  | "overlays"
+  | "innovative"
+  | "time"
+  | "widgets"
+  | "data";
   examples: ComponentExample[];
 }
 
@@ -155,7 +155,7 @@ const buttonExamples: ComponentExample[] = [
     title: "Variants",
     description: "Different button styles for various use cases.",
     preview: (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 justify-center">
         <GlassButton variant="default">Default</GlassButton>
         <GlassButton variant="primary">Primary</GlassButton>
         <GlassButton variant="outline">Outline</GlassButton>
@@ -987,7 +987,7 @@ const popoverExamples: ComponentExample[] = [
             </GlassButton>
           </GlassPopoverTrigger>
           <GlassPopoverContent align="center" className="w-48">
-            <p className="text-sm text-white/70">Aligned to center</p>
+            <p className="text-sm text-white/70 text-center">Aligned to center</p>
           </GlassPopoverContent>
         </GlassPopover>
         <GlassPopover>
@@ -997,7 +997,7 @@ const popoverExamples: ComponentExample[] = [
             </GlassButton>
           </GlassPopoverTrigger>
           <GlassPopoverContent align="end" className="w-48">
-            <p className="text-sm text-white/70">Aligned to end</p>
+            <p className="text-sm text-white/70 text-right">Aligned to end</p>
           </GlassPopoverContent>
         </GlassPopover>
       </div>
@@ -1328,7 +1328,7 @@ const dialogsExamples: ComponentExample[] = [
           <GlassButton variant="primary">Open Dialog</GlassButton>
         </GlassDialogTrigger>
         <GlassDialogContent>
-          <GlassDialogHeader>
+          <GlassDialogHeader className="text-left">
             <GlassDialogTitle>Edit Profile</GlassDialogTitle>
             <GlassDialogDescription>Make changes to your profile here.</GlassDialogDescription>
           </GlassDialogHeader>
@@ -1342,7 +1342,7 @@ const dialogsExamples: ComponentExample[] = [
               <GlassInput type="email" placeholder="john@example.com" />
             </div>
           </div>
-          <GlassDialogFooter>
+          <GlassDialogFooter className="flex-row justify-end gap-2">
             <GlassButton variant="outline">Cancel</GlassButton>
             <GlassButton variant="primary">Save changes</GlassButton>
           </GlassDialogFooter>
@@ -1376,7 +1376,7 @@ const dialogsExamples: ComponentExample[] = [
           </GlassButton>
         </GlassDialogTrigger>
         <GlassDialogContent>
-          <GlassDialogHeader>
+          <GlassDialogHeader className="text-left">
             <GlassDialogTitle>Notification Settings</GlassDialogTitle>
             <GlassDialogDescription>
               Configure how you receive notifications.
@@ -1392,7 +1392,7 @@ const dialogsExamples: ComponentExample[] = [
               <GlassSwitch />
             </div>
           </div>
-          <GlassDialogFooter>
+          <GlassDialogFooter className="flex-row justify-end gap-2">
             <GlassButton variant="primary">Save</GlassButton>
           </GlassDialogFooter>
         </GlassDialogContent>
@@ -1467,15 +1467,18 @@ const tabsExamples: ComponentExample[] = [
     description: "Tabs with icons for visual clarity.",
     preview: (
       <GlassTabs defaultValue="profile" className="w-full max-w-lg">
-        <GlassTabsList>
-          <GlassTabsTrigger value="profile">
-            <User className="mr-2 h-4 w-4" /> Profile
+        <GlassTabsList className="w-full">
+          <GlassTabsTrigger value="profile" className="group flex-1">
+            <User className="h-4 w-4" />
+            <span className="ml-2 hidden group-data-[state=active]:inline sm:inline">Profile</span>
           </GlassTabsTrigger>
-          <GlassTabsTrigger value="notifications">
-            <Bell className="mr-2 h-4 w-4" /> Notifications
+          <GlassTabsTrigger value="notifications" className="group flex-1">
+            <Bell className="h-4 w-4" />
+            <span className="ml-2 hidden group-data-[state=active]:inline sm:inline">Notifications</span>
           </GlassTabsTrigger>
-          <GlassTabsTrigger value="settings">
-            <Settings className="mr-2 h-4 w-4" /> Settings
+          <GlassTabsTrigger value="settings" className="group flex-1">
+            <Settings className="h-4 w-4" />
+            <span className="ml-2 hidden group-data-[state=active]:inline sm:inline">Settings</span>
           </GlassTabsTrigger>
         </GlassTabsList>
         <GlassTabsContent value="profile">
@@ -1497,11 +1500,13 @@ const tabsExamples: ComponentExample[] = [
     ),
     code: `<GlassTabs defaultValue="profile">
   <GlassTabsList>
-    <GlassTabsTrigger value="profile" className="flex items-center gap-2">
-      <User className="h-4 w-4" /> Profile
+    <GlassTabsTrigger value="profile" className="group">
+      <User className="h-4 w-4" />
+      <span className="ml-2 hidden group-data-[state=active]:inline sm:inline">Profile</span>
     </GlassTabsTrigger>
-    <GlassTabsTrigger value="billing" className="flex items-center gap-2">
-      <CreditCard className="h-4 w-4" /> Billing
+    <GlassTabsTrigger value="billing" className="group">
+      <CreditCard className="h-4 w-4" />
+      <span className="ml-2 hidden group-data-[state=active]:inline sm:inline">Billing</span>
     </GlassTabsTrigger>
   </GlassTabsList>
   <GlassTabsContent value="profile">...</GlassTabsContent>
@@ -1513,13 +1518,13 @@ const tabsExamples: ComponentExample[] = [
     preview: (
       <GlassTabs defaultValue="general" className="w-full">
         <GlassTabsList className="w-full">
-          <GlassTabsTrigger value="general" className="flex-1">
+          <GlassTabsTrigger value="general" className="flex-1 px-2 sm:px-4">
             General
           </GlassTabsTrigger>
-          <GlassTabsTrigger value="notifications" className="flex-1">
+          <GlassTabsTrigger value="notifications" className="flex-1 px-2 sm:px-4">
             Notifications
           </GlassTabsTrigger>
-          <GlassTabsTrigger value="security" className="flex-1">
+          <GlassTabsTrigger value="security" className="flex-1 px-2 sm:px-4">
             Security
           </GlassTabsTrigger>
         </GlassTabsList>
@@ -1566,11 +1571,20 @@ const tabsExamples: ComponentExample[] = [
         </GlassTabsContent>
       </GlassTabs>
     ),
-    code: `<GlassSheet>
-  <GlassSheetTrigger asChild>
-    <GlassButton variant="outline">Settings</GlassButton>
-  </GlassSheetTrigger>
-</GlassSheet>`,
+    code: `<GlassTabs defaultValue="general" className="w-full">
+  <GlassTabsList className="w-full">
+    <GlassTabsTrigger value="general" className="flex-1 px-2 sm:px-4">
+      General
+    </GlassTabsTrigger>
+    <GlassTabsTrigger value="notifications" className="flex-1 px-2 sm:px-4">
+      Notifications
+    </GlassTabsTrigger>
+    <GlassTabsTrigger value="security" className="flex-1 px-2 sm:px-4">
+      Security
+    </GlassTabsTrigger>
+  </GlassTabsList>
+  <GlassTabsContent value="general">...</GlassTabsContent>
+</GlassTabs>`,
   },
 ];
 
@@ -1580,7 +1594,7 @@ const badgeExamples: ComponentExample[] = [
     title: "Badge Variants",
     description: "Different badge styles for various contexts.",
     preview: (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 justify-center">
         <GlassBadge>Default</GlassBadge>
         <GlassBadge variant="primary">Secondary</GlassBadge>
         <GlassBadge variant="outline">Outline</GlassBadge>
@@ -1596,7 +1610,7 @@ const badgeExamples: ComponentExample[] = [
     title: "Tags",
     description: "Badges for displaying tags.",
     preview: (
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 justify-center">
         <GlassBadge variant="primary">React</GlassBadge>
         <GlassBadge variant="primary">TypeScript</GlassBadge>
         <GlassBadge variant="primary">Tailwind CSS</GlassBadge>
@@ -1612,7 +1626,7 @@ const badgeExamples: ComponentExample[] = [
     title: "Status Indicators",
     description: "Badges with status indicators for visual clarity.",
     preview: (
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <GlassBadge variant="success" className="flex items-center">
           <span className="w-2 h-2 rounded-full bg-emerald-400 mr-2" />
           Online
@@ -1935,7 +1949,7 @@ const weatherExamples: ComponentExample[] = [
     title: "Current Weather Widget",
     description: "Display current weather with temperature, conditions, and basic metrics.",
     preview: (
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-6 justify-center">
         <CurrentWeatherWidget
           location="San Francisco"
           temperature={18}
@@ -2093,7 +2107,7 @@ const calendarExamples: ComponentExample[] = [
     title: "Calendar Widget",
     description: "Compact calendar widget showing current date and month overview.",
     preview: (
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-6 justify-center">
         <CalendarWidget />
         <CalendarWidget date={new Date(2025, 0, 1)} />
       </div>
@@ -2143,7 +2157,7 @@ const clockExamples: ComponentExample[] = [
     title: "Digital Clock Widget",
     description: "Clean digital clock display with date.",
     preview: (
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-6 justify-center">
         <DigitalClockWidget />
         <DigitalClockWidget showSeconds />
         <DigitalClockWidget showSeconds format="24h" />
@@ -2159,7 +2173,7 @@ const clockExamples: ComponentExample[] = [
     title: "Analog Clock Widget",
     description: "Classic analog clock with smooth hand movement.",
     preview: (
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-6 justify-center">
         <AnalogClockWidget showNumbers size="sm" />
         <AnalogClockWidget showNumbers size="md" />
         <AnalogClockWidget size="lg" showNumbers={false} />
@@ -2196,13 +2210,21 @@ const clockExamples: ComponentExample[] = [
   {
     title: "Countdown Timer Widget",
     description: "Countdown timer with start, pause, and reset controls.",
-    preview: <TimerWidget initialMinutes={5} />,
+    preview: (
+      <div className="flex justify-center items-center p-4">
+        <TimerWidget initialMinutes={5} />
+      </div>
+    ),
     code: `<TimerWidget initialMinutes={5} />`,
   },
   {
     title: "Stopwatch Widget",
     description: "Precision stopwatch with lap time tracking.",
-    preview: <StopwatchWidget />,
+    preview: (
+      <div className="flex justify-center items-center p-4">
+        <StopwatchWidget />
+      </div>
+    ),
     code: `<StopwatchWidget />`,
   },
 ];

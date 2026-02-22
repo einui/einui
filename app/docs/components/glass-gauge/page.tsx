@@ -49,7 +49,7 @@ export default function GaugePage() {
         title="Sizes"
         description="Available in small, medium, and large sizes."
         preview={
-          <div className="flex items-end gap-8">
+          <div className="flex flex-col sm:flex-row items-center sm:items-end justify-center gap-6 sm:gap-8 py-4 sm:py-0">
             <GlassGauge value={60} size="sm" label="Small" />
             <GlassGauge value={75} size="md" label="Medium" />
             <GlassGauge value={90} size="lg" label="Large" />

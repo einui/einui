@@ -62,7 +62,7 @@ const GlassRipple = React.forwardRef<HTMLDivElement, GlassRippleProps>(
     )
 
     return (
-      <div ref={ref} className={cn("relative overflow-hidden", className)} {...props}>
+      <div ref={ref} className={cn("relative overflow-hidden cursor-pointer", className)} {...props}>
         <div ref={containerRef} className="absolute inset-0" onMouseDown={createRipple} onTouchStart={createRipple}>
           {ripples.map((ripple) => (
             <span
@@ -81,7 +81,7 @@ const GlassRipple = React.forwardRef<HTMLDivElement, GlassRippleProps>(
             />
           ))}
         </div>
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 pointer-events-none">{children}</div>
       </div>
     )
   },
