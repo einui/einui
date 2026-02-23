@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { TopHeader } from "@/components/top-header";
+import { MotionProvider } from "@/components/motion-config";
 import { SITE_URL, generateSoftwareLibraryJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -151,8 +152,10 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <TopHeader />
-        <div>{children}</div>
+        <MotionProvider>
+          <TopHeader />
+          <div>{children}</div>
+        </MotionProvider>
         <Analytics />
       </body>
     </html>
