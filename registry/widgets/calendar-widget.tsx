@@ -31,13 +31,15 @@ function CalendarWidget({
   );
 
   // On mount/client, set "now" if no date prop was provided.
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!date) setInternalDate(new Date());
   }, [date]);
 
   // When internalDate is ready, sync currentMonth.
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (internalDate) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentMonth(getMonthStart(internalDate));
     }
   }, [internalDate]);
@@ -153,7 +155,8 @@ interface CompactCalendarWidgetProps {
 
 function CompactCalendarWidget({ date, className }: CompactCalendarWidgetProps) {
   const [internalDate, setInternalDate] = React.useState<Date | null>(date ?? null);
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!date) setInternalDate(new Date());
   }, [date]);
 
@@ -207,7 +210,8 @@ function EventsCalendarWidget({
   className,
 }: EventsCalendarWidgetProps) {
   const [internalDate, setInternalDate] = React.useState<Date | null>(date ?? null);
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!date) setInternalDate(new Date());
   }, [date]);
 

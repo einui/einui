@@ -20,13 +20,18 @@ function AnalogClockWidget({
 }: AnalogClockWidgetProps) {
   const [currentTime, setCurrentTime] = React.useState<Date | undefined>(time);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (time) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentTime(time);
       return;
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentTime(new Date());
-    const interval = setInterval(() => setCurrentTime(new Date()), 1000);
+    const interval = setInterval(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCurrentTime(new Date());
+    }, 1000);
     return () => clearInterval(interval);
   }, [time]);
 
@@ -139,13 +144,18 @@ function DigitalClockWidget({
 }: DigitalClockWidgetProps) {
   const [currentTime, setCurrentTime] = React.useState<Date | undefined>(time);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (time) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentTime(time);
       return;
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentTime(new Date());
-    const interval = setInterval(() => setCurrentTime(new Date()), 1000);
+    const interval = setInterval(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCurrentTime(new Date());
+    }, 1000);
     return () => clearInterval(interval);
   }, [time]);
 
