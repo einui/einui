@@ -24,12 +24,13 @@ function GlassSpotlight({ steps, open = false, onOpenChange, onComplete }: Glass
 
   const step = steps[currentStep]
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (!open || !step) return
 
     const target = document.querySelector(step.target)
     if (target) {
       const rect = target.getBoundingClientRect()
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTargetRect(rect)
       target.scrollIntoView({ behavior: "smooth", block: "center" })
     }
