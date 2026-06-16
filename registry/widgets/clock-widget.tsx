@@ -26,10 +26,10 @@ function AnalogClockWidget({
       setCurrentTime(time);
       return;
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setCurrentTime(new Date());
     const interval = setInterval(() => {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+       
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(interval);
@@ -150,10 +150,10 @@ function DigitalClockWidget({
       setCurrentTime(time);
       return;
     }
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setCurrentTime(new Date());
     const interval = setInterval(() => {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+       
       setCurrentTime(new Date());
     }, 1000);
     return () => clearInterval(interval);
