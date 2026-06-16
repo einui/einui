@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     icon: [{ url: "/logo.svg", type: "image/svg+xml" }],
     apple: "/logo.png",
   },
-  manifest: "/manifest.json",
+  // manifest: "/manifest.json",
   alternates: {
     languages: {
       "en-US": "/",
