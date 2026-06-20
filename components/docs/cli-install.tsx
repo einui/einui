@@ -1,21 +1,48 @@
 "use client"
 
-import { useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { Check, Copy, Terminal } from "lucide-react"
+
+const CLI_INSTALL_COMMAND = "npx shadcn@latest add"
+const COPY_FEEDBACK_DURATION = 2000
 
 interface CLIInstallProps {
   componentName: string
 }
 
+function getInstallCommand(componentName: string) {
+  return `${CLI_INSTALL_COMMAND} @einui/${componentName}`
+}
+
 export function CLIInstall({ componentName }: CLIInstallProps) {
   const [copied, setCopied] = useState(false)
-  const command = `npx shadcn@latest add @einui/${componentName}`
+  const timeoutRef = useRef<number | null>(null)
 
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(command)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+  const command = useMemo(
+    () => getInstallCommand(componentName),
+    [componentName]
+  )
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        window.clearTimeout(timeoutRef.current)
+      }
+    }
+  }, [])
+
+  const copyToClipboard = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(command)
+      setCopied(true)
+      timeoutRef.current = window.setTimeout(
+        () => setCopied(false),
+        COPY_FEEDBACK_DURATION
+      )
+    } catch (error) {
+      console.error("Failed to copy install command:", error)
+    }
+  }, [command])
 
   return (
     <div className="mb-8">
@@ -28,9 +55,11 @@ export function CLIInstall({ componentName }: CLIInstallProps) {
           <span className="text-cyan-400 select-none">$</span>
           <code className="flex-1">{command}</code>
           <button
+            type="button"
             onClick={copyToClipboard}
             className="shrink-0 p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all"
-            aria-label="Copy to clipboard"
+            aria-label="Copy install command"
+            aria-pressed={copied}
           >
             {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
           </button>
