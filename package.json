@@ -42,7 +42,7 @@
     "@radix-ui/react-switch": "^1.2.7",
     "@radix-ui/react-tabs": "^1.1.14",
     "@radix-ui/react-tooltip": "^1.2.9",
-    "@vercel/analytics": "^1.6.1",
+    "@vercel/analytics": "^2.0.1",
     "@wandry/analytics-sdk": "^1.16.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
