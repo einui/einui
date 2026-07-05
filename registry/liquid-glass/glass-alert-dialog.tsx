@@ -49,7 +49,7 @@ const GlassAlertDialogContent = React.forwardRef<
         "data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         // Glass highlight
         "before:absolute before:inset-0 before:rounded-2xl",
-        "before:bg-gradient-to-b before:from-white/15 before:to-transparent before:pointer-events-none",
+        "before:bg-linear-to-b before:from-white/15 before:to-transparent before:pointer-events-none",
         className,
       )}
       {...props}

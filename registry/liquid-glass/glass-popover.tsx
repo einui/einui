@@ -33,7 +33,7 @@ const GlassPopoverContent = React.forwardRef<
         "data-[side=top]:slide-in-from-bottom-2",
         // Glass highlight
         "before:absolute before:inset-0 before:rounded-xl",
-        "before:bg-gradient-to-b before:from-white/15 before:to-transparent before:pointer-events-none",
+        "before:bg-linear-to-b before:from-white/15 before:to-transparent before:pointer-events-none",
         className,
       )}
       {...props}
