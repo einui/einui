@@ -75,7 +75,7 @@ const GlassSelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-xl",
+        "relative z-50 max-h-96 min-w-32 overflow-hidden rounded-xl",
         "bg-white/10 backdrop-blur-2xl border border-white/20",
         "shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -95,7 +95,7 @@ const GlassSelectContent = React.forwardRef<
         className={cn(
           "p-1",
           position === "popper" &&
-            "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]",
+            "h-(--radix-select-trigger-height) w-full min-w-(--radix-select-trigger-width)",
         )}
       >
         {children}
@@ -128,7 +128,7 @@ const GlassSelectItem = React.forwardRef<
       "relative flex w-full cursor-pointer select-none items-center rounded-lg py-2 pl-8 pr-2 text-sm",
       "text-white/80 outline-none",
       "focus:bg-white/10 focus:text-white",
-      "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "data-disabled:pointer-events-none data-disabled:opacity-50",
       "transition-colors duration-150",
       className,
     )}

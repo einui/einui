@@ -58,7 +58,7 @@ const GlassTableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttrib
       ref={ref}
       className={cn(
         "h-12 px-4 text-left align-middle font-medium text-white/60",
-        "[&:has([role=checkbox])]:pr-0",
+        "has-[[role=checkbox]]:pr-0",
         className,
       )}
       {...props}
@@ -71,7 +71,7 @@ const GlassTableCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttrib
   ({ className, ...props }, ref) => (
     <td
       ref={ref}
-      className={cn("p-4 align-middle text-white/80 [&:has([role=checkbox])]:pr-0", className)}
+      className={cn("p-4 align-middle text-white/80 has-[[role=checkbox]]:pr-0", className)}
       {...props}
     />
   ),
