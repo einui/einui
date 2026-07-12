@@ -91,7 +91,7 @@ export function ComponentGrid() {
                 <span className="text-white/70 text-sm">{component.title}</span>
                 {component.isNew && (
                   <GlassBadge
-                    glass-variant="primary"
+                    variant="primary"
                     size="sm"
                     className="absolute -top-1.5 -right-1.5 text-[10px] px-1.5 py-0"
                   >
