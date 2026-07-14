@@ -6,6 +6,7 @@ import { TopHeader } from "@/components/top-header";
 import { MotionProvider } from "@/components/motion-config";
 import { SITE_URL, generateSoftwareLibraryJsonLd } from "@/lib/seo";
 import "./globals.css";
+import Script from "next/script";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -58,8 +59,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Ein UI",
     title: "Ein UI - Liquid Glass UI Library for React & Next.js",
-    description:
-      "Open-source liquid glass UI components for React & Next.js. Shadcn-compatible and accessible.",
+    description: "Open-source liquid glass UI components for React & Next.js. Shadcn-compatible and accessible.",
     images: [
       {
         url: "/logo-white.png",
@@ -150,11 +150,6 @@ export default function RootLayout({
             }),
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(e,t,n){e.yektanetAnalyticsObject=n,e[n]=e[n]||function(){e[n].q.push(arguments)},e[n].q=e[n].q||[];var a=t.getElementsByTagName("head")[0],r=new Date,c="https://cdn.yektanet.com/superscript/OMFiTrDk/native-ui.eindev.ir-47365/yn_pub.js?v="+r.getFullYear().toString()+"0"+r.getMonth()+"0"+r.getDate()+"0"+r.getHours(),s=t.createElement("link");s.rel="preload",s.as="script",s.href=c,a.appendChild(s);var l=t.createElement("script");l.async=!0,l.src=c,a.appendChild(l)}(window,document,"yektanet");`,
-          }}
-        />
       </head>
       <body className="font-sans antialiased">
         <MotionProvider>
@@ -163,6 +158,31 @@ export default function RootLayout({
         </MotionProvider>
         <Analytics />
       </body>
+      <Script id="yektanet" strategy="afterInteractive">
+        {`
+            !function(e,t,n){
+              e.yektanetAnalyticsObject=n,
+              e[n]=e[n]||function(){e[n].q.push(arguments)},
+              e[n].q=e[n].q||[];
+              var a=t.getElementsByTagName("head")[0],
+                  r=new Date,
+                  c="https://cdn.yektanet.com/superscript/OMFiTrDk/native-ui.eindev.ir-47365/yn_pub.js?v="+
+                    r.getFullYear().toString()+"0"+
+                    r.getMonth()+"0"+
+                    r.getDate()+"0"+
+                    r.getHours(),
+                  s=t.createElement("link");
+              s.rel="preload";
+              s.as="script";
+              s.href=c;
+              a.appendChild(s);
+              var l=t.createElement("script");
+              l.async=!0;
+              l.src=c;
+              a.appendChild(l);
+            }(window,document,"yektanet");
+          `}
+      </Script>
     </html>
   );
 }
