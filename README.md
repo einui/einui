@@ -104,9 +104,5 @@ Please also see `CODE_OF_CONDUCT.md` and `SECURITY.md` for reporting guidelines.
 
 ## Maintainers
 
-- Maintained by Ehsan Ghaffar.
 - Contributions are welcome — please open PRs and issues on the repo.
 
----
-
-Happy building! 💡
