@@ -276,6 +276,7 @@ export default function HomePage() {
             </GlassCardContent>
           </GlassCard>
         </section>
+        <div id="pos-article-text-121173"></div>
 
         {/* Footer */}
         <footer className="container mx-auto px-4 pb-12 pt-8 border-t border-white/5">
