@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+**/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -14,7 +14,7 @@
 /coverage
 
 # next.js
-/.next/
+**/.next/
 /out/
 
 # production
@@ -42,5 +42,10 @@ next-env.d.ts
 README_users.md
 improve_suggests.md
 
-
 /docs/kb/*
+
+.turbo
+
+# build artifacts
+dist/
+.next

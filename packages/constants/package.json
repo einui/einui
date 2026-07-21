@@ -1,0 +1,21 @@
+{
+  "name": "@einui/constants",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@einui/eslint-config": "workspace:*",
+    "@einui/typescript-config": "workspace:*",
+    "typescript": "^6.0.3",
+    "eslint": "^9.39.2"
+  }
+}

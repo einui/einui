@@ -1,0 +1,10 @@
+{
+  "name": "@einui/eslint-config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.mjs",
+  "dependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.2.9"
+  }
+}
