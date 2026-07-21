@@ -50,6 +50,7 @@ import {
   UserPlus,
   Mail,
   BarChart3,
+  FileText
 } from "lucide-react";
 
 
@@ -224,7 +225,8 @@ export function generateNavigation(): NavSection[] {
     {
       title: "Registry",
       items: [
-        { title: "Overview", href: "/docs/registry", icon: <Package className="size-4" /> }
+        { title: "Overview", href: "/docs/registry", icon: <Package className="size-4" /> },
+        { title: "LLMs.txt", href: "/llms.txt", icon: <FileText className="size-4" /> },
       ],
     },
     {
