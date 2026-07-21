@@ -1,3 +1,3 @@
-import { nextConfig } from "@einui/eslint-config";
+import { libraryConfig } from "@einui/eslint-config/library";
 
-export default nextConfig;
+export default libraryConfig;

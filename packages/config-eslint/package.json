@@ -2,9 +2,13 @@
   "name": "@einui/eslint-config",
   "version": "1.0.0",
   "private": true,
-  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./library": "./library.mjs"
+  },
   "dependencies": {
     "eslint": "^9.39.2",
-    "eslint-config-next": "16.2.9"
+    "eslint-config-next": "16.2.9",
+    "typescript-eslint": "^8.38.0"
   }
 }

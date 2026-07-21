@@ -19,7 +19,8 @@
     "test": "vitest run --passWithNoTests",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "clean": "rm -rf .next .turbo"
   },
   "keywords": [],
   "author": "",
@@ -66,6 +67,8 @@
   },
   "devDependencies": {
     "@axe-core/cli": "^4.11.3",
+    "@einui/eslint-config": "workspace:*",
+    "@einui/typescript-config": "workspace:*",
     "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",

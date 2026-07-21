@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
     "@einui/utils": "workspace:*",
@@ -34,15 +35,19 @@
     "@radix-ui/react-tooltip": "^1.2.9",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.575.0",
-    "framer-motion": "^12.34.3",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "framer-motion": "^12.34.3"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@einui/eslint-config": "workspace:*",
     "@einui/typescript-config": "workspace:*",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "typescript": "^6.0.3",
     "eslint": "^9.39.2"
   }

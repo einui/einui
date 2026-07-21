@@ -13,10 +13,10 @@
   "iconLibrary": "lucide",
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
+    "utils": "@einui/utils",
+    "ui": "@einui/ui",
     "lib": "@/lib",
-    "hooks": "@/hooks"
+    "hooks": "@einui/hooks"
   },
   "registries": {
     "@einui": "https://ui.eindev.ir/r/{name}.json"
