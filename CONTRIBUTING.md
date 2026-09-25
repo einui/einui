@@ -39,6 +39,20 @@ git checkout -b feat/your-feature
    - Which issue it closes (e.g., `Closes #123`)
    - Any migration steps or breaking changes
 
+### Versioning & releases
+
+This project follows Semantic Versioning with a current baseline of `0.1.0`.
+
+Use the release helper scripts when preparing a new version:
+
+```bash
+pnpm version:patch
+pnpm version:minor
+pnpm version:major
+```
+
+These commands update `package.json` and add a changelog entry. When you are ready to publish, push the generated tag (for example `v0.1.0`) so the GitHub release workflow can build and publish the release artifacts.
+
 ### PR checklist
 
 - [ ] The PR description clearly explains the change and motivation
