@@ -3,14 +3,15 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - docker
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: "ehsanghaffar/einui"
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
