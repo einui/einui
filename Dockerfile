@@ -5,7 +5,7 @@
 # =========================================
 FROM node:20-alpine AS dependencies
 
-LABEL org.opencontainers.image.source https://github.com/einui/einui
+LABEL org.opencontainers.image.source https://github.com/ehsanghaffar/einui
 
 WORKDIR /app
 
