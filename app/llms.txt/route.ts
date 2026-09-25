@@ -19,12 +19,15 @@ export async function GET() {
 
 	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ui.eindev.ir";
 
-	const uiComponents = components.filter(
-		(c) =>
-			(c.type === "registry:ui" || c.type === "registry:component") &&
-			!c.name.includes("widget"),
+	const uiComponents = components.filter((c) => c.type === "registry:ui");
+	const widgetComponents = components.filter(
+		(c) => c.type === "registry:component" && c.name.includes("widget"),
 	);
-	const widgets = components.filter((c) => c.name.includes("widget"));
+	const innovativeComponents = components.filter(
+		(c) =>
+			c.type === "registry:component" && !c.name.includes("widget"),
+	);
+	const blocks = components.filter((c) => c.type === "registry:block");
 
 	const content = `# Ein UI
 
@@ -50,13 +53,21 @@ The key difference: Ein UI components feature a distinctive liquid glass morphis
 - Framer Motion - Animation library (used in select components)
 - TypeScript - Type safety
 
-## Available Components
+## UI Components
 
-${uiComponents.map((comp) => `- **${comp.title || comp.name}** (${comp.categories?.[0] || "component"}): ${comp.description}`).join("\n")}
+${uiComponents.map((comp) => `- **${comp.title || comp.name}** (${comp.categories?.[0] || "ui"}): ${comp.description}`).join("\n")}
 
 ## Widgets
 
-${widgets.length > 0 ? widgets.map((comp) => `- **${comp.title || comp.name}**: ${comp.description}`).join("\n") : "_No widgets available yet._"}
+${widgetComponents.length > 0 ? widgetComponents.map((comp) => `- **${comp.title || comp.name}**: ${comp.description}`).join("\n") : "_No widgets available yet._"}
+
+## Innovative Components
+
+${innovativeComponents.map((comp) => `- **${comp.title || comp.name}**: ${comp.description}`).join("\n")}
+
+## Blocks
+
+${blocks.length > 0 ? blocks.map((comp) => `- **${comp.title || comp.name}**: ${comp.description}`).join("\n") : "_No blocks available yet._"}
 
 ## Quick Start
 
