@@ -2,7 +2,7 @@
 
 [![Demo](https://img.shields.io/badge/demo-Demo%20Site-brightgreen)](https://ui.eindev.ir)
 [![Registry](https://img.shields.io/badge/registry-JSON-brightgreen?style=flat)](/r/registry.json)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=flat)](#key-features)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat)](#key-features)
 [![License](https://img.shields.io/badge/license-ISC-blue?style=flat)](/LICENCE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-✔-blue?style=flat)](https://www.typescriptlang.org/)
 [![Next.js%2016](https://img.shields.io/badge/Next.js-v16-black?style=flat)](https://nextjs.org/docs)

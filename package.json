@@ -1,6 +1,6 @@
 {
   "name": "ein-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "private": true,
   "authors": [
@@ -18,7 +18,12 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "version:check": "node scripts/version.mjs check",
+    "version:patch": "node scripts/version.mjs bump patch",
+    "version:minor": "node scripts/version.mjs bump minor",
+    "version:major": "node scripts/version.mjs bump major",
+    "release:notes": "node scripts/version.mjs notes"
   },
   "keywords": [],
   "author": "",
