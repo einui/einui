@@ -9,6 +9,8 @@ import {
 } from "@/registry/widgets/clock-widget";
 import { StockTickerWidget } from "@/registry/widgets/stock-widget";
 import { HourlyWeatherWidget, ForecastWidget } from "@/registry/widgets/weather-widget";
+import { MapWidget } from "@/registry/widgets/map-widget";
+import { AreaChartWidget } from "@/registry/widgets/area-chart-widget";
 
 const forecastData = [
   { day: "Mon", high: 31, low: 24, condition: "sunny" as const },
@@ -28,6 +30,22 @@ export function WidgetShowcase() {
           <AnalogClockWidget size="lg" showNumbers={true} />
         </div>
         <CalendarWidget />
+        <AreaChartWidget
+          title="Revenue"
+          subtitle="Last 8 months"
+          value="$42,850"
+          change="+12.4%"
+          data={[
+            { label: "Jan", value: 30 },
+            { label: "Feb", value: 45 },
+            { label: "Mar", value: 38 },
+            { label: "Apr", value: 65 },
+            { label: "May", value: 55 },
+            { label: "Jun", value: 85 },
+            { label: "Jul", value: 75 },
+            { label: "Aug", value: 95 },
+          ]}
+        />
       </div>
 
       {/* Column 2 */}
@@ -46,6 +64,7 @@ export function WidgetShowcase() {
           ]}
         />
         <StockTickerWidget symbol="AAPL" price={198.45} change={2.34} changePercent={1.19} />
+        <MapWidget title="Edge Network" subtitle="Tehran region" regionName="IR-TEH" activePoints={8642} />
       </div>
 
       {/* Column 3 */}

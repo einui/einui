@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "map-widget",
+  "title": "Glass Map Widget",
+  "description": "A liquid glass styled map widget with dotted geographic grid visualization, active node badges, and region statistics.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://ui.eindev.ir/r/base-widget.json"
+  ],
+  "files": [
+    {
+      "path": "registry/widgets/map-widget.tsx",
+      "content": "\"use client\"\n\nimport { cn } from \"@/lib/utils\"\nimport { GlassWidgetBase, type GlassWidgetBaseProps } from \"./base-widget\"\nimport { Activity, Globe } from \"lucide-react\"\n\ntype GlowColor = NonNullable<GlassWidgetBaseProps[\"glowColor\"]>\n\nconst ROWS = 12\nconst COLS = 16\n\n// Stylized landmass mask so the dot grid reads as a map rather than noise.\nfunction isLandCell(row: number, col: number): boolean {\n  return (\n    (row >= 2 && row <= 9 && col >= 4 && col <= 11) ||\n    (row >= 5 && row <= 7 && col >= 2 && col <= 5) ||\n    (row === 3 && col === 12)\n  )\n}\n\nexport interface MapWidgetProps {\n  title?: string\n  subtitle?: string\n  activePoints?: number\n  regionName?: string\n  glowColor?: GlowColor\n  className?: string\n}\n\nexport function MapWidget({\n  title = \"Network Map\",\n  subtitle = \"Global Nodes\",\n  activePoints = 1420,\n  regionName = \"Region-Alpha\",\n  glowColor = \"cyan\",\n  className,\n}: MapWidgetProps) {\n  return (\n    <GlassWidgetBase className={cn(\"flex flex-col justify-between\", className)} glowColor={glowColor}>\n      <div className=\"mb-4 flex items-center justify-between gap-3\">\n        <div className=\"min-w-0\">\n          <h3 className=\"truncate text-base font-medium text-white\">{title}</h3>\n          <p className=\"truncate text-xs text-white/50\">{subtitle}</p>\n        </div>\n        <div className=\"flex shrink-0 items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs text-white/80 backdrop-blur-md\">\n          <Globe className=\"size-3.5 animate-pulse text-cyan-400\" aria-hidden=\"true\" />\n          <span>{regionName}</span>\n        </div>\n      </div>\n\n      {/* Dotted map area */}\n      <div\n        className=\"relative my-3 flex min-h-35 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-black/20 p-4\"\n        role=\"img\"\n        aria-label={`${title} node map for ${regionName}`}\n      >\n        <div\n          className=\"pointer-events-none absolute inset-0 bg-linear-to-tr from-cyan-500/10 via-blue-500/5 to-transparent\"\n          aria-hidden=\"true\"\n        />\n\n        <div\n          className=\"grid gap-1.5\"\n          style={{ gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))` }}\n          aria-hidden=\"true\"\n        >\n          {Array.from({ length: ROWS * COLS }).map((_, index) => {\n            const row = Math.floor(index / COLS)\n            const col = index % COLS\n            const isLand = isLandCell(row, col)\n            const isActiveNode = isLand && (index % 5 === 0 || index % 7 === 0)\n\n            return (\n              <div\n                key={index}\n                className={cn(\n                  \"size-2 rounded-full transition-all duration-300\",\n                  isLand\n                    ? isActiveNode\n                      ? \"scale-110 bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)]\"\n                      : \"bg-blue-500/40\"\n                    : \"bg-white/5\"\n                )}\n              />\n            )\n          })}\n        </div>\n      </div>\n\n      <div className=\"flex items-center justify-between border-t border-white/10 pt-2 text-xs text-white/60\">\n        <span className=\"flex items-center gap-1\">\n          <Activity className=\"size-3.5 text-emerald-400\" aria-hidden=\"true\" />\n          Active Nodes\n        </span>\n        <span className=\"text-sm font-semibold tabular-nums text-white\">\n          {activePoints.toLocaleString()}\n        </span>\n      </div>\n    </GlassWidgetBase>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

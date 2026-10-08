@@ -51,7 +51,9 @@ import {
   UserPlus,
   Mail,
   BarChart3,
-  FileText
+  FileText,
+  Globe,
+  ChartArea
 } from "lucide-react";
 
 
@@ -102,6 +104,8 @@ const componentIcons: Record<string, LucideIcon> = {
   "storage-widget": HardDrive,
   "stats-widget": TrendingUp,
   "stock-widget": Gauge,
+  "map-widget": Globe,
+  "area-chart-widget": ChartArea,
 }
 
 const blockIcons: Record<string, LucideIcon> = {

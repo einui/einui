@@ -696,6 +696,42 @@
           "target": "app/pricing/page.tsx"
         }
       ]
+    },
+    {
+      "name": "map-widget",
+      "type": "registry:component",
+      "title": "Glass Map Widget",
+      "description": "A liquid glass styled map widget with dotted geographic grid visualization, active node badges, and region statistics.",
+      "registryDependencies": [
+        "https://ui.eindev.ir/r/base-widget.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/map-widget.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "area-chart-widget",
+      "type": "registry:component",
+      "title": "Glass Area Chart Widget",
+      "description": "A liquid glass styled area chart widget with glowing multi-layer gradient fills, smooth curves, and metric summary.",
+      "registryDependencies": [
+        "https://ui.eindev.ir/r/base-widget.json"
+      ],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/widgets/area-chart-widget.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ],
   "betterui": {
