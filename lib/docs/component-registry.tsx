@@ -103,6 +103,7 @@ import {
 } from "@/registry/liquid-glass";
 import {
   AnalogClockWidget,
+  AreaChartWidget,
   CalendarWidget,
   CompactCalendarWidget,
   CompactStockWidget,
@@ -114,6 +115,7 @@ import {
   ForecastWeatherWidget,
   ForecastWidget,
   HourlyWeatherWidget,
+  MapWidget,
   MarketOverviewWidget,
   PortfolioWidget,
   StockTickerWidget,
@@ -138,14 +140,14 @@ export interface ComponentConfig {
   description: string;
   registryName: string;
   category:
-  | "components"
-  | "forms"
-  | "data-display"
-  | "overlays"
-  | "innovative"
-  | "time"
-  | "widgets"
-  | "data";
+    | "components"
+    | "forms"
+    | "data-display"
+    | "overlays"
+    | "innovative"
+    | "time"
+    | "widgets"
+    | "data";
   usage?: string;
   dependencies?: string[];
   relatedComponents?: string[];
@@ -260,14 +262,10 @@ const cardExamples: ComponentExample[] = [
       <GlassCard className="w-full max-w-sm">
         <GlassCardHeader>
           <GlassCardTitle>Card Title</GlassCardTitle>
-          <GlassCardDescription>
-            Card description goes here with additional context.
-          </GlassCardDescription>
+          <GlassCardDescription>Card description goes here with additional context.</GlassCardDescription>
         </GlassCardHeader>
         <GlassCardContent>
-          <p className="text-white/80">
-            This is the card content area where you can add any content.
-          </p>
+          <p className="text-white/80">This is the card content area where you can add any content.</p>
         </GlassCardContent>
         <GlassCardFooter>
           <GlassButton>Action</GlassButton>
@@ -816,9 +814,7 @@ const tableExamples: ComponentExample[] = [
                 <GlassBadge variant="outline">{user.role}</GlassBadge>
               </GlassTableCell>
               <GlassTableCell>
-                <GlassBadge variant={user.status === "Active" ? "primary" : "default"}>
-                  {user.status}
-                </GlassBadge>
+                <GlassBadge variant={user.status === "Active" ? "primary" : "default"}>{user.status}</GlassBadge>
               </GlassTableCell>
             </GlassTableRow>
           ))}
@@ -1030,8 +1026,7 @@ const alertDialogExamples: ComponentExample[] = [
           <GlassAlertDialogHeader>
             <GlassAlertDialogTitle>Are you absolutely sure?</GlassAlertDialogTitle>
             <GlassAlertDialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove
-              your data from our servers.
+              This action cannot be undone. This will permanently delete your account and remove your data from our servers.
             </GlassAlertDialogDescription>
           </GlassAlertDialogHeader>
           <GlassAlertDialogFooter>
@@ -1072,9 +1067,7 @@ const alertDialogExamples: ComponentExample[] = [
         <GlassAlertDialogContent>
           <GlassAlertDialogHeader>
             <GlassAlertDialogTitle>Log out of your account?</GlassAlertDialogTitle>
-            <GlassAlertDialogDescription>
-              You will need to sign in again to access your account.
-            </GlassAlertDialogDescription>
+            <GlassAlertDialogDescription>You will need to sign in again to access your account.</GlassAlertDialogDescription>
           </GlassAlertDialogHeader>
           <GlassAlertDialogFooter>
             <GlassAlertDialogCancel>Stay signed in</GlassAlertDialogCancel>
@@ -1232,10 +1225,7 @@ const scrollAreaExamples: ComponentExample[] = [
         <div className="p-4">
           <h4 className="mb-4 text-sm font-medium text-white leading-none">Tags</h4>
           {Array.from({ length: 15 }).map((_, i) => (
-            <div
-              key={i}
-              className="text-sm text-white/70 py-2 border-b border-white/5 last:border-0"
-            >
+            <div key={i} className="text-sm text-white/70 py-2 border-b border-white/5 last:border-0">
               Tag {i + 1}
             </div>
           ))}
@@ -1258,10 +1248,7 @@ const scrollAreaExamples: ComponentExample[] = [
       <GlassScrollArea className="w-96 whitespace-nowrap rounded-xl border border-white/10">
         <div className="flex gap-4 p-4">
           {Array.from({ length: 10 }).map((_, i) => (
-            <div
-              key={i}
-              className="shrink-0 w-32 h-32 rounded-lg bg-white/5 flex items-center justify-center text-white/70"
-            >
+            <div key={i} className="shrink-0 w-32 h-32 rounded-lg bg-white/5 flex items-center justify-center text-white/70">
               Item {i + 1}
             </div>
           ))}
@@ -1381,9 +1368,7 @@ const dialogsExamples: ComponentExample[] = [
         <GlassDialogContent>
           <GlassDialogHeader className="text-left">
             <GlassDialogTitle>Notification Settings</GlassDialogTitle>
-            <GlassDialogDescription>
-              Configure how you receive notifications.
-            </GlassDialogDescription>
+            <GlassDialogDescription>Configure how you receive notifications.</GlassDialogDescription>
           </GlassDialogHeader>
           <div className="py-4 space-y-4">
             <div className="flex items-center justify-between">
@@ -2084,14 +2069,7 @@ const weatherExamples: ComponentExample[] = [
     title: "Weather Details Widget",
     description: "Detailed weather metrics including UV, visibility, pressure, and more.",
     preview: (
-      <DetailedWeatherWidget
-        location="New York"
-        temperature={22}
-        condition="sunny"
-        humidity={65}
-        windSpeed={12}
-        feelsLike={24}
-      />
+      <DetailedWeatherWidget location="New York" temperature={22} condition="sunny" humidity={65} windSpeed={12} feelsLike={24} />
     ),
     code: `<DetailedWeatherWidget
   location="New York"
@@ -2259,9 +2237,7 @@ const stocksExamples: ComponentExample[] = [
   {
     title: "Compact Stock Card",
     description: "Compact view of stock information with price change.",
-    preview: (
-      <CompactStockWidget symbol="TSLA" price={245.67} change={-3.21} changePercent={-1.29} />
-    ),
+    preview: <CompactStockWidget symbol="TSLA" price={245.67} change={-3.21} changePercent={-1.29} />,
     code: `<CompactStockWidget
   symbol="TSLA"
   price={245.67}
@@ -2392,6 +2368,181 @@ const statsExamples: ComponentExample[] = [
   },
 ];
 
+// ========== MAP EXAMPLES ==========
+const mapExamples: ComponentExample[] = [
+  {
+    title: "Global Node Network",
+    description: "Default map widget with a global node grid and live node count.",
+    preview: (
+      <div className="w-full max-w-sm">
+        <MapWidget />
+      </div>
+    ),
+    code: `<MapWidget />`,
+  },
+  {
+    title: "Custom Region and Node Count",
+    description: "Rename the widget, point it at a specific region, and set the active node count.",
+    preview: (
+      <div className="w-full max-w-sm">
+        <MapWidget
+          title="Edge Network"
+          subtitle="Tehran region"
+          regionName="IR-TEH"
+          activePoints={8642}
+        />
+      </div>
+    ),
+    code: `<MapWidget
+  title="Edge Network"
+  subtitle="Tehran region"
+  regionName="IR-TEH"
+  activePoints={8642}
+/>`,
+  }
+];
+
+// ========== AREA CHART EXAMPLES ==========
+const areaChartExamples: ComponentExample[] = [
+  {
+    title: "Revenue Overview",
+    description: "Monthly revenue with a positive change badge and a highlighted headline value.",
+    preview: (
+      <div className="w-full max-w-sm">
+        <AreaChartWidget
+          title="Revenue"
+          subtitle="Last 8 months"
+          value="$42,850"
+          change="+12.4%"
+          data={[
+            { label: "Jan", value: 30 },
+            { label: "Feb", value: 45 },
+            { label: "Mar", value: 38 },
+            { label: "Apr", value: 65 },
+            { label: "May", value: 55 },
+            { label: "Jun", value: 85 },
+            { label: "Jul", value: 75 },
+            { label: "Aug", value: 95 },
+          ]}
+        />
+      </div>
+    ),
+    code: `<AreaChartWidget
+  title="Revenue"
+  subtitle="Last 8 months"
+  value="$42,850"
+  change="+12.4%"
+  data={[
+    { label: "Jan", value: 30 },
+    { label: "Feb", value: 45 },
+    { label: "Mar", value: 38 },
+    { label: "Apr", value: 65 },
+    { label: "May", value: 55 },
+    { label: "Jun", value: 85 },
+    { label: "Jul", value: 75 },
+    { label: "Aug", value: 95 },
+  ]}
+/>`,
+  },
+  {
+    title: "Declining Metric",
+    description: "A negative change string renders a downward trend icon and a red badge automatically.",
+    preview: (
+      <div className="w-full max-w-sm">
+        <AreaChartWidget
+          title="Active Sessions"
+          subtitle="Week over week"
+          value="1,204"
+          change="-8.1%"
+          glowColor="red"
+          data={[
+            { label: "Mon", value: 82 },
+            { label: "Tue", value: 74 },
+            { label: "Wed", value: 69 },
+            { label: "Thu", value: 61 },
+            { label: "Fri", value: 55 },
+            { label: "Sat", value: 48 },
+            { label: "Sun", value: 41 },
+          ]}
+        />
+      </div>
+    ),
+    code: `<AreaChartWidget
+  title="Active Sessions"
+  subtitle="Week over week"
+  value="1,204"
+  change="-8.1%"
+  glowColor="red"
+  data={[
+    { label: "Mon", value: 82 },
+    { label: "Tue", value: 74 },
+    { label: "Wed", value: 69 },
+    { label: "Thu", value: 61 },
+    { label: "Fri", value: 55 },
+    { label: "Sat", value: 48 },
+    { label: "Sun", value: 41 },
+  ]}
+/>`,
+  },
+  {
+    title: "Glow Color Variants",
+    description: "The glow palette drives the line gradient, the area fill, and the widget halo together.",
+    preview: (
+      <div className="flex w-full flex-wrap gap-4">
+        <AreaChartWidget
+          title="Traffic"
+          subtitle="Green"
+          change="+4.2%"
+          glowColor="green"
+          data={[
+            { label: "Mon", value: 20 },
+            { label: "Tue", value: 44 },
+            { label: "Wed", value: 61 },
+          ]}
+          className="w-full max-w-xs"
+        />
+        <AreaChartWidget
+          title="Latency"
+          subtitle="Amber"
+          change="+2.8%"
+          glowColor="amber"
+          data={[
+            { label: "Mon", value: 61 },
+            { label: "Tue", value: 44 },
+            { label: "Wed", value: 20 },
+          ]}
+          className="w-full max-w-xs"
+        />
+      </div>
+    ),
+    code: `<AreaChartWidget
+  title="Traffic"
+  subtitle="Green"
+  change="+4.2%"
+  glowColor="green"
+  data={[...]}
+/>
+
+<AreaChartWidget
+  title="Latency"
+  subtitle="Amber"
+  change="+2.8%"
+  glowColor="amber"
+  data={[...]}
+/>`,
+  },
+  {
+    title: "Empty State",
+    description: "With no data points the widget keeps its header and renders a labelled placeholder.",
+    preview: (
+      <div className="w-full max-w-sm">
+        <AreaChartWidget title="Deploys" subtitle="No data for this range" data={[]} />
+      </div>
+    ),
+    code: `<AreaChartWidget title="Deploys" subtitle="No data for this range" data={[]} />`,
+  },
+];
+
 // ========== INNOVATIVE EXAMPLES ==========
 const innovativeExamples: ComponentExample[] = [];
 
@@ -2432,8 +2583,7 @@ export const componentRegistry: Record<string, ComponentConfig> = {
   "glass-button": {
     slug: "glass-button",
     title: "Button",
-    description:
-      "Interactive button components with multiple variants, sizes, and optional glow effects.",
+    description: "Interactive button components with multiple variants, sizes, and optional glow effects.",
     registryName: "glass-button",
     category: "components",
     examples: buttonExamples,
@@ -2697,12 +2847,27 @@ export const componentRegistry: Record<string, ComponentConfig> = {
     category: "innovative",
     examples: innovativeExamples,
   },
+  "map-widget": {
+    slug: "map-widget",
+    title: "Map Widget",
+    description:
+      "A liquid glass styled map widget with dotted geographic grid visualization, active node badges, and region statistics.",
+    registryName: "map-widget",
+    category: "widgets",
+    examples: mapExamples,
+  },
+  "area-chart-widget": {
+    slug: "area-chart-widget",
+    title: "Area Chart Widget",
+    description:
+      "A liquid glass styled area chart widget with glowing multi-layer gradient fills, smooth curves, and metric summary.",
+    registryName: "area-chart-widget",
+    category: "widgets",
+    examples: areaChartExamples,
+  },
 };
 
-const componentMetadata: Record<
-  string,
-  Pick<ComponentConfig, "usage" | "dependencies" | "relatedComponents">
-> = {
+const componentMetadata: Record<string, Pick<ComponentConfig, "usage" | "dependencies" | "relatedComponents">> = {
   "glass-button": {
     usage: "Use buttons for actions that change state, submit work, or move the user forward.",
     dependencies: ["class-variance-authority", "lucide-react"],
@@ -2736,7 +2901,5 @@ export function getAllComponentSlugs(): string[] {
 // Get component config by slug
 export function getComponentBySlug(slug: string): ComponentConfig | undefined {
   const component = componentRegistry[slug];
-  return component
-    ? { ...component, ...componentMetadata[slug] }
-    : undefined;
+  return component ? { ...component, ...componentMetadata[slug] } : undefined;
 }

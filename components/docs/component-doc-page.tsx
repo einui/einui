@@ -76,7 +76,7 @@ export function ComponentDocPage({ component }: ComponentDocPageProps) {
               <Link
                 key={slug}
                 href={`/docs/components/${slug}`}
-                className="rounded-lg border border-white/10 bg-white/[0.025] px-3 py-2 text-sm text-white/65 transition-colors hover:border-cyan-300/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+                className="rounded-lg border border-white/10 bg-white/2.5 px-3 py-2 text-sm text-white/65 transition-colors hover:border-cyan-300/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
               >
                 {slug.replace("glass-", "")}
               </Link>
@@ -92,7 +92,7 @@ export function ComponentDocPage({ component }: ComponentDocPageProps) {
         {previousSlug ? (
           <Link
             href={`/docs/components/${previousSlug}`}
-            className="group flex max-w-[48%] items-center gap-3 rounded-xl border border-white/10 bg-white/[0.025] px-4 py-3 text-left transition-colors hover:border-cyan-300/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+            className="group flex max-w-[48%] items-center gap-3 rounded-xl border border-white/10 bg-white/2.5 px-4 py-3 text-left transition-colors hover:border-cyan-300/30 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
           >
             <ArrowLeft className="size-4 shrink-0 text-white/40 transition-transform group-hover:-translate-x-1" />
             <span className="min-w-0">
@@ -108,7 +108,7 @@ export function ComponentDocPage({ component }: ComponentDocPageProps) {
         {nextSlug ? (
           <Link
             href={`/docs/components/${nextSlug}`}
-            className="group flex max-w-[48%] items-center gap-3 rounded-xl border border-white/10 bg-white/[0.025] px-4 py-3 text-right transition-colors hover:border-cyan-300/30 hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
+            className="group flex max-w-[48%] items-center gap-3 rounded-xl border border-white/10 bg-white/2.5 px-4 py-3 text-right transition-colors hover:border-cyan-300/30 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300/70"
           >
             <span className="min-w-0">
               <span className="block text-xs text-white/40">Next</span>
