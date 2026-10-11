@@ -11,82 +11,13 @@ import {
 } from "@/registry/liquid-glass/glass-card"
 import { GlassButton } from "@/registry/liquid-glass/glass-button"
 import { GlassBadge } from "@/registry/liquid-glass/glass-badge"
+import {
+  getInstallCommand,
+  getRegistryUrl,
+  registryCatalog,
+  registryNamespace,
+} from "@/lib/docs/docs-content"
 import { Package, Copy, Check, ExternalLink, Layers, Sparkles, ArrowLeft } from "lucide-react"
-
-const registryItems = [
-  {
-    name: "glass-cards",
-    title: "Glass Card",
-    description: "Card with transparency and glow effects",
-    type: "component",
-  },
-  {
-    name: "glass-buttons",
-    title: "Glass Button",
-    description: "Button with multiple variants and glow",
-    type: "component",
-  },
-  {
-    name: "glass-inputs",
-    title: "Glass Input",
-    description: "Input field with focus glow animation",
-    type: "component",
-  },
-  {
-    name: "glass-tabs",
-    title: "Glass Tabs",
-    description: "Tabs with smooth transitions",
-    type: "component",
-  },
-  {
-    name: "glass-dialogs",
-    title: "Glass Dialog",
-    description: "Modal dialog with backdrop blur",
-    type: "component",
-  },
-  {
-    name: "glass-badge",
-    title: "Glass Badge",
-    description: "Badge with multiple color variants",
-    type: "component",
-  },
-  {
-    name: "glass-avatar",
-    title: "Glass Avatar",
-    description: "Avatar with gradient glow",
-    type: "component",
-  },
-  {
-    name: "glass-progress",
-    title: "Glass Progress",
-    description: "Progress bar with animated gradient",
-    type: "component",
-  },
-  {
-    name: "glass-switch",
-    title: "Glass Switch",
-    description: "Toggle switch with glow effect",
-    type: "component",
-  },
-  {
-    name: "glass-slider",
-    title: "Glass Slider",
-    description: "Range slider with gradient track",
-    type: "component",
-  },
-  {
-    name: "glass-tooltip",
-    title: "Glass Tooltip",
-    description: "Tooltip with glass styling",
-    type: "component",
-  },
-  {
-    name: "admin-panel",
-    title: "Admin Panel",
-    description: "Complete admin dashboard block",
-    type: "block",
-  },
-]
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false)
@@ -109,7 +40,10 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export default function RegistryPage() {
-  const baseUrl = typeof window !== "undefined" ? window.location.origin : ""
+  const registryConfig = `"registries": { "${registryNamespace}": "${getRegistryUrl()}" }`
+  const exampleInstallCommand = getInstallCommand("glass-card")
+  const exampleItemUrl = getRegistryUrl("glass-card")
+  const registryIndexUrl = getRegistryUrl("registry")
 
   return (
     <div className="container max-w-5xl mx-auto px-4 ">
@@ -149,7 +83,7 @@ export default function RegistryPage() {
               Quick Installation
             </GlassCardTitle>
             <GlassCardDescription>
-              Add Ein Liquid Glass components to your project using the shadcn CLI
+              Add Ein UI registry items to your project using the shadcn CLI
             </GlassCardDescription>
           </GlassCardHeader>
           <GlassCardContent className="space-y-6">
@@ -157,8 +91,8 @@ export default function RegistryPage() {
             <div>
               <h3 className="text-white font-medium mb-3">1. Add the registry to your components.json</h3>
               <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-white/80 flex items-center justify-between">
-                <code>{`"registries": { "@einui": "${baseUrl}/api/r/{name}" }`}</code>
-                <CopyButton text={`"registries": { "@einui": "${baseUrl}/api/r/{name}" }`} />
+                <code>{registryConfig}</code>
+                <CopyButton text={registryConfig} />
               </div>
             </div>
 
@@ -166,8 +100,8 @@ export default function RegistryPage() {
             <div>
               <h3 className="text-white font-medium mb-3">2. Install components</h3>
               <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-white/80 flex items-center justify-between">
-                <code>npx shadcn@latest add @ein/glass-card</code>
-                <CopyButton text="npx shadcn@latest add @ein/glass-card" />
+                <code>{exampleInstallCommand}</code>
+                <CopyButton text={exampleInstallCommand} />
               </div>
             </div>
 
@@ -175,8 +109,8 @@ export default function RegistryPage() {
             <div>
               <h3 className="text-white font-medium mb-3">Or install directly via URL</h3>
               <div className="bg-black/30 rounded-lg p-4 font-mono text-sm text-white/80 flex items-center justify-between overflow-x-auto">
-                <code className="whitespace-nowrap">npx shadcn@latest add {baseUrl}/api/r/glass-card</code>
-                <CopyButton text={`npx shadcn@latest add ${baseUrl}/api/r/glass-card`} />
+                <code className="whitespace-nowrap">npx shadcn@latest add {exampleItemUrl}</code>
+                <CopyButton text={`npx shadcn@latest add ${exampleItemUrl}`} />
               </div>
             </div>
           </GlassCardContent>
@@ -186,12 +120,12 @@ export default function RegistryPage() {
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
             <Layers className="h-6 w-6 text-purple-400" />
-            Available Components
+            Available Registry Items
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {registryItems.map((item) => (
+          {registryCatalog.map((item) => (
             <GlassCard key={item.name} className="group">
               <GlassCardHeader>
                 <div className="flex items-start justify-between">
@@ -204,8 +138,8 @@ export default function RegistryPage() {
                 <div className="space-y-3">
                   {/* Install command */}
                   <div className="bg-black/20 rounded-lg p-3 font-mono text-xs text-white/70 flex items-center justify-between">
-                    <code className="truncate">@einui/{item.name}</code>
-                    <CopyButton text={`npx shadcn@latest add @einui/${item.name}`} />
+                    <code className="truncate">{registryNamespace}/{item.name}</code>
+                    <CopyButton text={getInstallCommand(item.name)} />
                   </div>
 
                   {/* Actions */}
@@ -216,13 +150,6 @@ export default function RegistryPage() {
                         View JSON
                       </GlassButton>
                     </Link>
-                    {item.type === "component" && (
-                      <Link href={`/docs/components/${item.name.replace("glass-", "")}`} className="flex-1">
-                        <GlassButton variant="ghost" size="sm" className="w-full">
-                          Preview
-                        </GlassButton>
-                      </Link>
-                    )}
                   </div>
                 </div>
               </GlassCardContent>
@@ -236,13 +163,15 @@ export default function RegistryPage() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
                 <h3 className="text-white font-medium">Registry Index URL</h3>
-                <p className="text-white/60 text-sm">Full registry manifest with all components</p>
+                <p className="text-white/60 text-sm">
+                  Full registry manifest with all {registryCatalog.length} items
+                </p>
               </div>
               <div className="flex items-center gap-2">
-                <code className="bg-black/30 px-4 py-2 rounded-lg text-white/80 font-mono text-sm">
-                  {baseUrl}/r/registry.json
-                </code>
-                <CopyButton text={`${baseUrl}/r/registry.json`} />
+                <Link href={registryIndexUrl} target="_blank" className="bg-black/30 px-4 py-2 rounded-lg text-white/80 font-mono text-sm">
+                  {registryIndexUrl}
+                </Link>
+                <CopyButton text={registryIndexUrl} />
               </div>
             </div>
           </GlassCardContent>

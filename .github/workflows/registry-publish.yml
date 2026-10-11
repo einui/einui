@@ -30,9 +30,8 @@ jobs:
       - name: Build registry
         run: pnpm registry:build
 
-      - name: Validate registry (placeholder)
-        run: |
-          echo "Add registry validation here (path checks, dependency checks)"
+      - name: Validate registry contract
+        run: pnpm exec vitest run tests/registry-contract.test.ts tests/docs-content.test.ts
 
   publish:
     needs: validate
@@ -64,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: registry-artifact
-          path: r/
+          path: public/r/
 
       - name: (Optional) Publish artifacts
         run: echo "Add publishing steps (GitHub Pages, CDN, or release upload)"

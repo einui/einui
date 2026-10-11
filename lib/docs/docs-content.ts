@@ -36,6 +36,13 @@ interface RegistryItem {
 
 const registryItems = registry.items as RegistryItem[];
 
+export const registryCatalog = registryItems.map((item) => ({
+  name: item.name,
+  title: item.title ?? item.name,
+  description: item.description ?? "",
+  type: item.type.replace(/^registry:/, ""),
+}));
+
 export const installableComponents = registryItems
   .filter(
     (item) =>

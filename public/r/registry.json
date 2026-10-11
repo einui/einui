@@ -571,7 +571,7 @@
         "@radix-ui/react-alert-dialog"
       ],
       "registryDependencies": [
-        "glass-button"
+        "https://ui.eindev.ir/r/glass-button.json"
       ],
       "files": [
         {
