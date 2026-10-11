@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
    */
   reactStrictMode: true,
   cacheComponents: true,
+  partialPrefetching: true,
 };
 
 export default nextConfig;
