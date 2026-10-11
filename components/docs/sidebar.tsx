@@ -18,7 +18,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { Home, Github, ExternalLink, Blocks } from "lucide-react";
+import { Home, GitBranch, ExternalLink, Blocks } from "lucide-react";
 import { generateNavigation } from "@/contants/nav-items";
 
 function SidebarNavContent() {
@@ -118,7 +118,7 @@ function SidebarNavContent() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm text-white/60 hover:bg-white/5 hover:text-white transition-colors"
         >
-          <Github className="h-4 w-4" />
+          <GitBranch className="h-4 w-4" />
           GitHub
           <ExternalLink className="ml-auto h-3 w-3" />
         </a>

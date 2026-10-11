@@ -9,8 +9,8 @@ import {
   Zap,
   Palette,
   Code2,
-  Github,
-  Twitter,
+  GitBranch,
+  Bird,
   Globe,
   Accessibility,
   Moon,
@@ -343,12 +343,12 @@ export default function HomePage() {
             <div className="flex items-center gap-3">
               <GlassButton variant="ghost" size="sm" asChild>
                 <a href="https://github.com/ehsanghaffar" target="_blank" rel="noopener noreferrer">
-                  <Github className="size-4" />
+                  <GitBranch className="size-4" />
                 </a>
               </GlassButton>
               <GlassButton variant="ghost" size="sm" asChild>
                 <a href="https://twitter.com/ehsanghaffar" target="_blank" rel="noopener noreferrer">
-                  <Twitter className="size-4" />
+                  <Bird className="size-4" />
                 </a>
               </GlassButton>
             </div>

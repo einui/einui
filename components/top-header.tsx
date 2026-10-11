@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Star, Menu, X, ExternalLink } from "lucide-react";
+import { GitBranch, Star, Menu, X, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { headerNavItems } from "@/contants/nav-items";
 
@@ -67,7 +67,7 @@ export function TopHeader() {
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 rounded-xl bg-linear-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 px-3.5 py-2 text-sm font-medium text-white/90 hover:from-yellow-500/20 hover:to-orange-500/20 hover:border-yellow-500/30 hover:shadow-[0_0_20px_rgba(234,179,8,0.15)] transition-all duration-300 group"
             >
-              <Github className="size-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
+              <GitBranch className="size-4 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
               <ExternalLink className="size-3 text-white/40 group-hover:text-white/60 transition-colors" />
             </a>
 
@@ -133,7 +133,7 @@ export function TopHeader() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-white/60 hover:text-white hover:bg-white/5 transition-all duration-300 mt-2 border-t border-white/5 pt-5"
             >
-              <Github className="h-5 w-5" />
+              <GitBranch className="h-5 w-5" />
               <span>GitHub</span>
               <Star className="ml-auto size-4 text-yellow-400" />
             </a>
