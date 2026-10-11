@@ -1,6 +1,6 @@
 {
   "name": "ein-ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A modern and customizable liquid glass UI component library built with React, Next.js, and Tailwind CSS.",
   "private": true,
   "authors": [

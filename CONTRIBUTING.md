@@ -41,7 +41,7 @@ git checkout -b feat/your-feature
 
 ### Versioning & releases
 
-This project follows Semantic Versioning with a current baseline of `0.3.0`.
+This project follows Semantic Versioning with a current baseline of `0.3.1`.
 
 Use the release helper scripts when preparing a new version:
 
@@ -51,7 +51,7 @@ pnpm version:minor
 pnpm version:major
 ```
 
-These commands update `package.json` and add a changelog entry. When you are ready to publish, push the generated tag (for example `v0.3.0`) so the GitHub release workflow can build and publish the release artifacts.
+These commands update `package.json` and add a changelog entry. When you are ready to publish, push the generated tag (for example `v0.3.1`) so the GitHub release workflow can build and publish the release artifacts.
 
 ### PR checklist
 

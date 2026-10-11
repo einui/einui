@@ -3,6 +3,14 @@
 All notable changes to the Ein UI component registry are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.1] - 2026-10-11
+
+### Fixed
+- Fixed `glass-alert-dialog` installation by resolving `glass-button` through
+  the `@einui` registry instead of the default shadcn registry.
+- Corrected Registry documentation links and item names to match the published
+  `@einui` registry.
+
 ## [0.3.0] - 2026-10-11
 
 ### Added
