@@ -2,8 +2,8 @@
 
 [![Demo](https://img.shields.io/badge/demo-Demo%20Site-brightgreen)](https://ui.eindev.ir)
 [![Registry](https://img.shields.io/badge/registry-JSON-brightgreen?style=flat)](/r/registry.json)
-[![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat)](#key-features)
-[![License](https://img.shields.io/badge/license-ISC-blue?style=flat)](/LICENCE)
+[![Version](https://img.shields.io/badge/version-0.3.0-blue?style=flat)](#key-features)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](/LICENCE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-✔-blue?style=flat)](https://www.typescriptlang.org/)
 [![Next.js%2016](https://img.shields.io/badge/Next.js-v16-black?style=flat)](https://nextjs.org/docs)
 [![Tailwind%20CSS](https://img.shields.io/badge/Tailwind%20v4-%20%20-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -105,4 +105,3 @@ Please also see `CODE_OF_CONDUCT.md` and `SECURITY.md` for reporting guidelines.
 ## Maintainers
 
 - Contributions are welcome — please open PRs and issues on the repo.
-

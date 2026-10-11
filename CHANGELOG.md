@@ -3,6 +3,18 @@
 All notable changes to the Ein UI component registry are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-11
+
+### Added
+- Enabled Next.js Partial Prefetching so internal navigation can reuse a shared
+  app shell while destination-specific content loads.
+
+### Changed
+- Updated the application and test toolchain, including Next.js 16.4, React 19.3,
+  shadcn 4.21, Vitest 5, and pnpm 12.4.2.
+- Replaced retired social-brand icons with supported Lucide icons.
+- Updated package license metadata to MIT.
+
 ## [0.2.0] - 2026-10-08
 
 ### Added
