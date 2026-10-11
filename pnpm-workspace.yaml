@@ -1,0 +1,3 @@
+allowBuilds:
+  chromedriver: true
+  unrs-resolver: true
